@@ -8,9 +8,45 @@
     <title>vampirefight</title>
 </head>
 <body>
-    <h1 id="title">Vampire Fight</h1>
-    <section>
-        <div></div>
-    </section>
+    <div id="start-div">
+        <h1 id="game-title">Vampire Fight</h1>
+        <button id="start-button">Start Game</button>
+    </div>    
+    <div id="rules-div">   
+        <h2 id="rules-title">Rules:</h2>
+        <ul>
+            <li>Bite wins vs Scratch and will gain you 1 HP.</li>
+            <li>Scratch wins vs Garlic and will gain you 1 HP.</li>
+            <li>Garlic wins vs Bite and will gain you 1 HP.</li>
+            <li>Silver Bullet will take away 3 HP from the opponent, but you only have 2 shots.</li>
+            <li>Stake will take away 2 HP from the opponent, but you only have 2</li>
+            <li>Crossbow does 4 damage, but you only have 1 shot.</li>
+    </ul>
+    </div>
+    <div id="message-div">
+        <h2 id="message">Player 1 and Player 2, choose your names.</h2>
+    </div>
+    <div id="username-div">
+        <input type="text" placeholder="Player 1" id="player1-name">
+        <input type="text" placeholder="Player 2" id="player2-name">
+    </div>
+    <div id="inventory-div">
+        <div class="inventory" id="player1-inv">
+            <h3>Inventory</h3>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="inventory" id="player2-inv">
+            <h3>Inventory</h3>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

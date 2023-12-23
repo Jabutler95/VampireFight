@@ -5,13 +5,16 @@ const choices = [
   'Garlic',
   'Silver Bullet',
   'Crossbow',
-  'Wooden Stake'
+  'Wooden Stake',
 ]
 
 
 /*--------------- Variables ------------------*/
-
-
+let player1Name = ''
+let player2Name = ''
+let player1Hp = 10
+let player2Hp = 10
+let player1Choice, player2Choice, message
 
 /*-------- Cached Element References-------*/
 

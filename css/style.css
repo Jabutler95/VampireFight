@@ -1,0 +1,32 @@
+#start-div {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#rules-div {
+  border: 2px solid black;
+  justify-content: flex-start;
+}
+
+#message-div {
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#username-div {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+#inventory-div {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+}
