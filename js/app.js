@@ -216,7 +216,12 @@ function compareChoices() {
     computerHp = computerHp - 3
     updatePlayer1Inventory()
   }
-  //player crossbow cpu 
+  //player crossbow cpu scratch 
+  else if (player1Choice === choices[4] && computerChoice === choices[1]) {
+    message = `You chose Crossbow and the enemy chose Bite! You deal 3 damage!`
+    computerHp = computerHp - 3
+    updatePlayer1Inventory()
+  }
 
   console.log(computerInventory);
   console.log(player1Hp);
