@@ -26,23 +26,19 @@ let player1Inventory = {
     {name: 'Wooden Stake', quantity: 2},
   ],
 }
-//what if i try putting everything into a 'game' object and then when quantity is at 0, invoke a function to remove the item from the choices array for the cpu
 
 
 let player1HasChosen 
-let player2HasChosen
+
 
 /*--------------- Variables ------------------*/
-let player1Name = ''
-let player2Name = ''
 let player1Hp = 10
 let computerHp = 10
 let player1Choice, computerChoice, message
-let turn = 1
 
 /*-------- Cached Element References-------*/
 
-
+const battleResult = document.getElementById('message')
 
 /*-------------- Event Listeners ---------------*/
 document.getElementById('Bite').addEventListener('click', playGame)
@@ -61,6 +57,7 @@ function playGame(evt) {
   //isChoiceValid()
   compareChoices()
   checkWinner()
+  updateMessage()
 }
 
 function getPlayer1Choice(evt) {
@@ -244,34 +241,34 @@ function compareChoices() {
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
-    message = `You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!`
+    message = 'You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!'
     computerHp = computerHp - 1
   }
   //player wooden stake cpu scratch 
   else if (player1Choice === choices[5] && computerChoice === choices[1]) {
-    message = `You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!`
+    message = 'You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!'
     computerHp = computerHp - 1
   }
   //player wooden stake cpu Garlic 
   else if (player1Choice === choices[5] && computerChoice === choices[2]) {
-    message = `You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!`
+    message = 'You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!'
     computerHp = computerHp - 1
   }
   //player wooden stake cpu silver bullet
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
-    message = `You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!`
+    message = 'You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!'
     player1Hp = player1Hp - 1
     updatePlayer1Inventory()
     updateComputerInventory()
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
-    message = `You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!`
+    message = 'You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!'
     player1Hp = player1Hp - 2
     updatePlayer1Inventory()
     updateComputerInventory()
   }
-
+  console.log(player1Inventory);
   console.log(computerInventory);
   console.log(player1Hp);
   console.log(computerHp);
@@ -304,6 +301,10 @@ function updatePlayer1Inventory () {
   if (player1Choice === choices[5]) {
     player1Inventory.weapons[2].quantity--
   }
+}
+
+function updateMessage () {
+  battleResult.textContent = message
 }
 
 function checkWinner() {
