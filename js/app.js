@@ -218,7 +218,13 @@ function compareChoices() {
   }
   //player crossbow cpu scratch 
   else if (player1Choice === choices[4] && computerChoice === choices[1]) {
-    message = `You chose Crossbow and the enemy chose Bite! You deal 3 damage!`
+    message = `You chose Crossbow and the enemy chose Scratch! You deal 3 damage!`
+    computerHp = computerHp - 3
+    updatePlayer1Inventory()
+  }
+  //player crossbow cpu garlic 
+  else if (player1Choice === choices[4] && computerChoice === choices[2]) {
+    message = `You chose Crossbow and the enemy chose Garlic! You deal 3 damage!`
     computerHp = computerHp - 3
     updatePlayer1Inventory()
   }
