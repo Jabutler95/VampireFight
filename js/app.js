@@ -228,6 +228,49 @@ function compareChoices() {
     computerHp = computerHp - 3
     updatePlayer1Inventory()
   }
+  //player crossbow cpu silver bullet
+  else if (player1Choice === choices[4] && computerChoice === choices[3]) {
+    message = `You chose Crossbow and the enemy chose Silver Bullet! You deal 1 damage!`
+    computerHp = computerHp - 1
+    updatePlayer1Inventory()
+    updateComputerInventory()
+  }
+  //player crossbow cpu wooden stake
+  else if (player1Choice === choices[4] && computerChoice === choices[5]) {
+    message = `You chose Crossbow and the enemy chose Wooden Stake! You deal 2 damage!`
+    computerHp = computerHp - 2
+    updatePlayer1Inventory()
+    updateComputerInventory()
+  }
+  //player wooden stake cpu bite 
+  else if (player1Choice === choices[5] && computerChoice === choices[0]) {
+    message = `You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!`
+    computerHp = computerHp - 1
+  }
+  //player wooden stake cpu scratch 
+  else if (player1Choice === choices[5] && computerChoice === choices[1]) {
+    message = `You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!`
+    computerHp = computerHp - 1
+  }
+  //player wooden stake cpu Garlic 
+  else if (player1Choice === choices[5] && computerChoice === choices[2]) {
+    message = `You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!`
+    computerHp = computerHp - 1
+  }
+  //player wooden stake cpu silver bullet
+  else if (player1Choice === choices[5] && computerChoice === choices[3]) {
+    message = `You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!`
+    player1Hp = player1Hp - 1
+    updatePlayer1Inventory()
+    updateComputerInventory()
+  }
+  //player wooden stake cpu crossbow
+  else if (player1Choice === choices[5] && computerChoice === choices[4]) {
+    message = `You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!`
+    player1Hp = player1Hp - 2
+    updatePlayer1Inventory()
+    updateComputerInventory()
+  }
 
   console.log(computerInventory);
   console.log(player1Hp);
