@@ -26,7 +26,7 @@ let player1Inventory = {
     {name: 'Wooden Stake', quantity: 2},
   ],
 }
-
+//what if i try putting everything into a 'game' object and then when quantity is at 0, invoke a function to remove the item from the choices array for the cpu
 
 
 let player1HasChosen 
@@ -94,13 +94,13 @@ function compareChoices() {
   } 
   //player bite cpu scratch
   else if (player1Choice === choices[0] && computerChoice === choices[1]) {
-    message = `You chose ${player1Choice} and the enemy chose ${computerChoice}.. you gain 1HP an deal 1 damage.`
+    message = `You chose Bite and the enemy chose Scratch you gain 1 HP and deal 1 damage.`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
   } 
   //player bite cpu garlic
   else if (player1Choice === choices[0] && computerChoice === choices[2]) {
-    message = `You chose ${player1Choice} and the enemy chose ${computerChoice}.. the enemy stole 1HP!`
+    message = `You chose Bite and the enemy chose Garlic! The enemy stole 1HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
   } 
