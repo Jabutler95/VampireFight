@@ -58,9 +58,9 @@ document.getElementById('Crossbow').addEventListener('click', playGame)
 function playGame(evt) {
   getPlayer1Choice(evt)
   getComputerChoice()
-  isChoiceValid()
-  // getPlayer2Choice(evt)
+  //isChoiceValid()
   compareChoices()
+  checkWinner()
 }
 
 function getPlayer1Choice(evt) {
@@ -68,17 +68,17 @@ function getPlayer1Choice(evt) {
   console.log(`You chose ${player1Choice}`);
 }
 
-function isChoiceValid() {
-if (computerChoice === choices[3] && computerInventory.weapons[0].quantity === 0) {
-  getComputerChoice()
-}
-if (computerChoice === choices[4] && computerInventory.weapons[1].quantity === 0) {
-  getComputerChoice()
-}
-if (computerChoice === choices[5] && computerInventory.weapons[3].quantity === 0) {
-  getComputerChoice()
-}
-}
+// function isChoiceValid() {
+// if (computerChoice === choices[3] && computerInventory.weapons[0].quantity === 0) {
+//   getComputerChoice()
+// }
+// if (computerChoice === choices[4] && computerInventory.weapons[1].quantity === 0) {
+//   getComputerChoice()
+// }
+// if (computerChoice === choices[5] && computerInventory.weapons[3].quantity === 0) {
+//   getComputerChoice()
+// }
+// }
 
 function getComputerChoice () {
   const randomIndex = Math.floor(Math.random() * choices.length)
@@ -294,7 +294,7 @@ function updateComputerInventory () {
 
 function updatePlayer1Inventory () {
   if (player1Choice === choices[3]) {
-    player1InventoryInventory.weapons[0].quantity--
+    player1Inventory.weapons[0].quantity--
   }
   //crossbow
   if (player1Choice === choices[4]) {
@@ -304,4 +304,17 @@ function updatePlayer1Inventory () {
   if (player1Choice === choices[5]) {
     player1Inventory.weapons[2].quantity--
   }
+}
+
+function checkWinner() {
+  if (player1Hp === 0) {
+    message = `GAME OVER. You lose! Don't give up, try again!`
+  } 
+  if (computerHp === 0) {
+    message = `YOU WIN!!!!!!!! Go again?`
+  }
+  else {
+    return
+  }
+  console.log(message);
 }
