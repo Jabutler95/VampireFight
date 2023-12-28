@@ -30,3 +30,28 @@
   display: flex;
   justify-content: space-between;
 }
+
+#game-field {
+  border: 2px solid black;
+  height: 40vh;
+}
+
+#player-choices {
+  display: flex;
+  justify-content: space-between;
+}
+
+#player1-choices {
+  display: flex;
+}
+
+#player2-choices {
+  display: flex;
+}
+
+.choices {
+  border: 2px solid black;
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+}
