@@ -45,7 +45,7 @@ document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
 document.getElementById('Garlic').addEventListener('click', playGame)
 document.getElementById('Silver Bullet').addEventListener('click', playGame)
-document.getElementById('Wooden-Stake').addEventListener('click', playGame)
+document.getElementById('Wooden Stake').addEventListener('click', playGame)
 document.getElementById('Crossbow').addEventListener('click', playGame)
 
 
@@ -241,29 +241,29 @@ function compareChoices() {
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
-    message = 'You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!'
+    message = `You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!`
     computerHp = computerHp - 1
   }
   //player wooden stake cpu scratch 
   else if (player1Choice === choices[5] && computerChoice === choices[1]) {
-    message = 'You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!'
+    message = `You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!`
     computerHp = computerHp - 1
   }
   //player wooden stake cpu Garlic 
   else if (player1Choice === choices[5] && computerChoice === choices[2]) {
-    message = 'You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!'
+    message = `You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!`
     computerHp = computerHp - 1
   }
   //player wooden stake cpu silver bullet
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
-    message = 'You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!'
+    message = `You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!`
     player1Hp = player1Hp - 1
     updatePlayer1Inventory()
     updateComputerInventory()
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
-    message = 'You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!'
+    message = `You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!`
     player1Hp = player1Hp - 2
     updatePlayer1Inventory()
     updateComputerInventory()
