@@ -65,6 +65,7 @@ function playGame(evt) {
   console.log(computerChoice)
 }
 
+
 //get the player's choice
 function getPlayer1Choice(evt) {
   player1Choice = evt.target.id
@@ -221,46 +222,59 @@ function compareChoices() {
   else if (player1Choice === choices[4] && computerChoice === choices[1]) {
     message = `You chose Crossbow and the enemy chose Scratch! You deal 3 damage!`
     computerHp = computerHp - 3
+    updatePlayerInvDis()
   }
   //player crossbow cpu garlic 
   else if (player1Choice === choices[4] && computerChoice === choices[2]) {
     message = `You chose Crossbow and the enemy chose Garlic! You deal 3 damage!`
     computerHp = computerHp - 3
+    updatePlayerInvDis()
   }
   //player crossbow cpu silver bullet
   else if (player1Choice === choices[4] && computerChoice === choices[3]) {
     message = `You chose Crossbow and the enemy chose Silver Bullet! You deal 1 damage!`
     computerHp = computerHp - 1
+    updateCpuInvDis()
+    updatePlayerInvDis()
   }
   //player crossbow cpu wooden stake
   else if (player1Choice === choices[4] && computerChoice === choices[5]) {
     message = `You chose Crossbow and the enemy chose Wooden Stake! You deal 2 damage!`
     computerHp = computerHp - 2
+    updateCpuInvDis()
+    updatePlayerInvDis()
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
     message = `You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!`
     computerHp = computerHp - 1
+    updatePlayerInvDis()
   }
   //player wooden stake cpu scratch 
   else if (player1Choice === choices[5] && computerChoice === choices[1]) {
     message = `You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!`
     computerHp = computerHp - 1
+    updatePlayerInvDis()
   }
   //player wooden stake cpu Garlic 
   else if (player1Choice === choices[5] && computerChoice === choices[2]) {
     message = `You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!`
     computerHp = computerHp - 1
+    updatePlayerInvDis()
   }
   //player wooden stake cpu silver bullet
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
     message = `You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!`
     player1Hp = player1Hp - 1
+    updateCpuInvDis()
+    updatePlayerInvDis()
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
     message = `You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!`
     player1Hp = player1Hp - 2
+    updateCpuInvDis()
+    updatePlayerInvDis()
   }
   console.log(player1Inventory);
   console.log(computerInventory);
@@ -285,15 +299,28 @@ function checkWinner() {
   console.log(message);
 }
 
-//display the inventory as it is updated on the screen. Iterate through and append the item to the parent ul
-player1Inventory.weapons.forEach(weapon => {
-  let weaponItem = document.createElement('li')
-  weaponItem.textContent = `${weapon.name} : ${weapon.quantity}`
-  player1InventoryEl.appendChild(weaponItem)
-})
+//update the inventory on the screen after each state change in the game
 
-computerInventory.weapons.forEach(weapon => {
-  let weaponItem = document.createElement('li')
-  weaponItem.textContent = `${weapon.name} : ${weapon.quantity}`
-  cpuInventoryEl.appendChild(weaponItem)
-})
+//display the inventory as it is updated on the screen. Iterate through and append the item to the parent ul
+function updatePlayerInvDis() {
+  player1InventoryEl.innerHTML = ''
+  player1Inventory.weapons.forEach(weapon => {
+    let weaponItem = document.createElement('li')
+    weaponItem.textContent = `${weapon.name} : ${weapon.quantity}`
+    player1InventoryEl.appendChild(weaponItem)
+  })
+}
+
+function updateCpuInvDis() {
+  cpuInventoryEl.innerHTML = ''
+  computerInventory.weapons.forEach(weapon => {
+    let weaponItem = document.createElement('li')
+    weaponItem.textContent = `${weapon.name} : ${weapon.quantity}`
+    cpuInventoryEl.appendChild(weaponItem)
+  })
+}
+
+updatePlayerInvDis()
+updateCpuInvDis()
+
+
