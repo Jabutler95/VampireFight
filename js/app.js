@@ -12,10 +12,10 @@ let computerInventory = {
   weapons: [
     {name: 'Silver Bullet', quantity: 2},
     {name: 'Crossbow', quantity: 2 },
-    {name: 'Wooden Stake', quantity: 2}
-  ],
-  heals: [
-
+    {name: 'Wooden Stake', quantity: 2}, 
+    {name: 'Bite', quantity: Infinity}, 
+    {name: 'Scratch', quantity: Infinity},
+    {name: 'Garlic', quantity: Infinity}
   ]
 }
 
@@ -28,7 +28,7 @@ let player1Inventory = {
 }
 
 
-let player1HasChosen 
+
 
 
 /*--------------- Variables ------------------*/
@@ -41,6 +41,7 @@ let player1Choice, computerChoice, message
 const battleResult = document.getElementById('message')
 
 /*-------------- Event Listeners ---------------*/
+document.getElementById('start-button').addEventListener('click', preGame)
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
 document.getElementById('Garlic').addEventListener('click', playGame)
@@ -51,6 +52,11 @@ document.getElementById('Crossbow').addEventListener('click', playGame)
 
 
 /*-------------- Functions -----------------*/
+
+function preGame() {
+
+}
+
 function playGame(evt) {
   getPlayer1Choice(evt)
   getComputerChoice()
@@ -65,22 +71,13 @@ function getPlayer1Choice(evt) {
   console.log(`You chose ${player1Choice}`);
 }
 
-// function isChoiceValid() {
-// if (computerChoice === choices[3] && computerInventory.weapons[0].quantity === 0) {
-//   getComputerChoice()
-// }
-// if (computerChoice === choices[4] && computerInventory.weapons[1].quantity === 0) {
-//   getComputerChoice()
-// }
-// if (computerChoice === choices[5] && computerInventory.weapons[3].quantity === 0) {
-//   getComputerChoice()
-// }
-// }
+
 
 function getComputerChoice () {
   const randomIndex = Math.floor(Math.random() * choices.length)
   computerChoice = choices[randomIndex]
   console.log(`The computer chose ${computerChoice}`);
+
 }
 
 
@@ -290,6 +287,7 @@ function updateComputerInventory () {
 }
 
 function updatePlayer1Inventory () {
+  //silver bullet
   if (player1Choice === choices[3]) {
     player1Inventory.weapons[0].quantity--
   }
@@ -308,10 +306,10 @@ function updateMessage () {
 }
 
 function checkWinner() {
-  if (player1Hp === 0) {
+  if (player1Hp <= 0) {
     message = `GAME OVER. You lose! Don't give up, try again!`
   } 
-  if (computerHp === 0) {
+  if (computerHp <= 0) {
     message = `YOU WIN!!!!!!!! Go again?`
   }
   else {
