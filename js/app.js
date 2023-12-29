@@ -10,17 +10,20 @@ const choices = [
 
 let computerInventory = {
   weapons: [
+    {name: 'Bite', quantity: Infinity}, 
+    {name: 'Scratch', quantity: Infinity},
+    {name: 'Garlic', quantity: Infinity},
     {name: 'Silver Bullet', quantity: 2},
     {name: 'Crossbow', quantity: 2 },
     {name: 'Wooden Stake', quantity: 2}, 
-    {name: 'Bite', quantity: Infinity}, 
-    {name: 'Scratch', quantity: Infinity},
-    {name: 'Garlic', quantity: Infinity}
   ]
 }
 
 let player1Inventory = {
   weapons: [
+    {name: 'Bite', quantity: Infinity}, 
+    {name: 'Scratch', quantity: Infinity},
+    {name: 'Garlic', quantity: Infinity},
     {name: 'Silver Bullet', quantity: 2},
     {name: 'Crossbow', quantity: 2},
     {name: 'Wooden Stake', quantity: 2},
@@ -41,7 +44,7 @@ let player1Choice, computerChoice, message
 const battleResult = document.getElementById('message')
 
 /*-------------- Event Listeners ---------------*/
-document.getElementById('start-button').addEventListener('click', preGame)
+document.getElementById('start-button').addEventListener('click', playGame)
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
 document.getElementById('Garlic').addEventListener('click', playGame)
@@ -53,33 +56,55 @@ document.getElementById('Crossbow').addEventListener('click', playGame)
 
 /*-------------- Functions -----------------*/
 
-function preGame() {
-
-}
-
 function playGame(evt) {
   getPlayer1Choice(evt)
-  getComputerChoice()
+  computerChoice = getRandomWeapon(computerInventory)
   //isChoiceValid()
   compareChoices()
   checkWinner()
   updateMessage()
+  console.log(computerChoice)
 }
 
+//get the player's choice
 function getPlayer1Choice(evt) {
   player1Choice = evt.target.id
+  //ensure the user can still select the weapon
+  selectedWeapon(player1Choice)
+}
+
+function selectedWeapon(player1Choice) {
+  const selectedWeapon = player1Inventory.weapons.find(weapon => weapon.name === player1Choice)
+  if (selectedWeapon && selectedWeapon.quantity > 0) {
+    //more dynamic way to reduce the quantity vs calling a function each time the weapon is used in the specific instance. 
+    selectedWeapon.quantity--
+  } else if (selectedWeapon && selectedWeapon.quantity === 0) {
+    //disallow use of a weapon that is out of ammo
+    document.getElementById(player1Choice).disabled = true
+  } else {
+    return selectedWeapon
+  }
   console.log(`You chose ${player1Choice}`);
 }
 
-
-
-function getComputerChoice () {
-  const randomIndex = Math.floor(Math.random() * choices.length)
-  computerChoice = choices[randomIndex]
-  console.log(`The computer chose ${computerChoice}`);
-
+//Will be more dynamic if I do not set it to just the computer's inventory
+function getRandomWeapon(inv) {
+    // get only the weapons with ammo still using filter method
+  const weaponsWithAmmo = inv.weapons.filter
+  //arrow function with parameter weapon 
+  (weapon => weapon.quantity > 0)
+  //if the array exists..
+  if (weaponsWithAmmo.length > 0) {
+    //get the index of a random weapon
+    const randomIndex = Math.floor(Math.random() * weaponsWithAmmo.length)
+    //store the selected weapon to variable
+    const selectedWeapon = weaponsWithAmmo[randomIndex]
+    // Reduce the ammo each use
+    selectedWeapon.quantity--
+    // Return the selected weapon's name
+    return selectedWeapon.name
+  } 
 }
-
 
 function compareChoices() {
   //Draw condition
@@ -102,19 +127,16 @@ function compareChoices() {
   else if (player1Choice === choices[0] && computerChoice === choices[3]) {
     message = `You chose Bite and the enemy chose silver bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
-    updateComputerInventory()
   } 
   //player bite cpu crossbow
-  else if (player1Choice === choices[0] && computerChoice === choices[4]) {
+  else if (player1Choice === choices[0] && computerChoice === choices[5]) {
     message = `You chose Bite and the enemy chose stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    updateComputerInventory()
   } 
   //player bite cpu wooden stake
-  else if (player1Choice === choices[0] && computerChoice === choices[5]) {
+  else if (player1Choice === choices[0] && computerChoice === choices[4]) {
     message = `You chose Bite and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    updateComputerInventory ()
   }
   //player scratch cpu bite
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {
@@ -130,19 +152,16 @@ function compareChoices() {
   else if (player1Choice === choices[1] && computerChoice === choices[3]) {
     message = `You chose Scratch and the enemy chose Silver Bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
-    updateComputerInventory ()
   }
   //player scratch cpu crossbow
   else if (player1Choice === choices[1] && computerChoice === choices[4]) {
     message = `You chose Scratch and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    updateComputerInventory ()
   }
   //player scratch cpu stake
   else if (player1Choice === choices[1] && computerChoice === choices[5]) {
     message = `You chose Scratch and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    updateComputerInventory ()
   }
   //player garlic cpu bite
   else if (player1Choice === choices[2] && computerChoice === choices[0]) {
@@ -158,83 +177,76 @@ function compareChoices() {
   else if (player1Choice === choices[2] && computerChoice === choices[3]) {
     message = `You chose Garlic and the enemy chose Silver Bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
-    updateComputerInventory()
   }
   //player garlic cpu crossbow
   else if (player1Choice === choices[2] && computerChoice === choices[4]) {
     message = `You chose Garlic and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    updateComputerInventory()
   }
   //player garlic cpu wooden stake
   else if (player1Choice === choices[2] && computerChoice === choices[5]) {
     message = `You chose Garlic and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    updateComputerInventory()
   }
   //player silver bullet cpu bite
   else if (player1Choice === choices[3] && computerChoice === choices[0]) {
     message = `You chose Silver Bullet and the enemy chose Bite! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayer1Inventory()
+    //updatePlayer1Inventory()
   }
   //player silver bullet cpu scratch 
   else if (player1Choice === choices[3] && computerChoice === choices[1]) {
     message = `You chose Silver Bullet and the enemy chose Scratch! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayer1Inventory()
+    //updatePlayer1Inventory()
   }
   //player silver bullet cpu garlic 
   else if (player1Choice === choices[3] && computerChoice === choices[2]) {
     message = `You chose Silver Bullet and the enemy chose Garlic! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayer1Inventory()
+    //updatePlayer1Inventory()
   }
   //player silver bullet cpu crossbow 
   else if (player1Choice === choices[3] && computerChoice === choices[4]) {
     message = `You chose Silver Bullet and the enemy chose Crossbow! You take 1 damage!`
     player1Hp = player1Hp - 1
-    updatePlayer1Inventory()
-    updateComputerInventory()
+    //updatePlayer1Inventory()
   }
   //player silver bullet cpu wooden stake
   else if (player1Choice === choices[3] && computerChoice === choices[5]) {
     message = `You chose Silver Bullet and the enemy chose Wooden Stake! You deal 1 damage!`
     computerHp = computerHp - 1
-    updatePlayer1Inventory()
-    updateComputerInventory()
+    //updatePlayer1Inventory()
   }
   //player crossbow cpu bite
   else if (player1Choice === choices[4] && computerChoice === choices[0]) {
     message = `You chose Crossbow and the enemy chose Bite! You deal 3 damage!`
     computerHp = computerHp - 3
-    updatePlayer1Inventory()
+    //updatePlayer1Inventory()
   }
   //player crossbow cpu scratch 
   else if (player1Choice === choices[4] && computerChoice === choices[1]) {
     message = `You chose Crossbow and the enemy chose Scratch! You deal 3 damage!`
     computerHp = computerHp - 3
-    updatePlayer1Inventory()
+    //updatePlayer1Inventory()
   }
   //player crossbow cpu garlic 
   else if (player1Choice === choices[4] && computerChoice === choices[2]) {
     message = `You chose Crossbow and the enemy chose Garlic! You deal 3 damage!`
     computerHp = computerHp - 3
-    updatePlayer1Inventory()
+    //updatePlayer1Inventory()
   }
   //player crossbow cpu silver bullet
   else if (player1Choice === choices[4] && computerChoice === choices[3]) {
     message = `You chose Crossbow and the enemy chose Silver Bullet! You deal 1 damage!`
     computerHp = computerHp - 1
-    updatePlayer1Inventory()
-    updateComputerInventory()
+    //updatePlayer1Inventory()
   }
   //player crossbow cpu wooden stake
   else if (player1Choice === choices[4] && computerChoice === choices[5]) {
     message = `You chose Crossbow and the enemy chose Wooden Stake! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayer1Inventory()
-    updateComputerInventory()
+    //updatePlayer1Inventory()
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
@@ -255,50 +267,18 @@ function compareChoices() {
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
     message = `You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!`
     player1Hp = player1Hp - 1
-    updatePlayer1Inventory()
-    updateComputerInventory()
+    //updatePlayer1Inventory()
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
     message = `You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!`
     player1Hp = player1Hp - 2
-    updatePlayer1Inventory()
-    updateComputerInventory()
+    //updatePlayer1Inventory()
   }
   console.log(player1Inventory);
   console.log(computerInventory);
   console.log(player1Hp);
   console.log(computerHp);
-}
-
-function updateComputerInventory () {
-  //silver bullet
-  if (computerChoice === choices[3]) {
-    computerInventory.weapons[0].quantity--
-  }
-  //crossbow
-  if (computerChoice === choices[4]) {
-    computerInventory.weapons[1].quantity--
-  }
-  //wooden stake
-  if (computerChoice === choices[5]) {
-    computerInventory.weapons[2].quantity--
-  }
-}
-
-function updatePlayer1Inventory () {
-  //silver bullet
-  if (player1Choice === choices[3]) {
-    player1Inventory.weapons[0].quantity--
-  }
-  //crossbow
-  if (player1Choice === choices[4]) {
-    player1Inventory.weapons[1].quantity--
-  }
-  //wooden stake
-  if (player1Choice === choices[5]) {
-    player1Inventory.weapons[2].quantity--
-  }
 }
 
 function updateMessage () {
