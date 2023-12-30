@@ -1,4 +1,5 @@
 /*---------------- Constants ----------------*/
+
 const choices = [
   'Bite', 
   'Scratch',
@@ -8,6 +9,7 @@ const choices = [
   'Wooden Stake',
 ]
 
+/*--------------- Variables ------------------*/
 let computerInventory = {
   weapons: [
     {name: 'Bite', quantity: Infinity}, 
@@ -27,22 +29,20 @@ let player1Inventory = {
     {name: 'Silver Bullet', quantity: 2},
     {name: 'Crossbow', quantity: 2},
     {name: 'Wooden Stake', quantity: 2},
-  ],
+  ]
 }
 
-
-
-
-/*--------------- Variables ------------------*/
-let player1Hp = 10
-let computerHp = 10
 let player1Choice, computerChoice, message
+
+player1Hp = 10
+computerHp = 10
+winner = false
 
 /*-------- Cached Element References-------*/
 const player1InventoryEl = document.getElementById('player1InvList')
 const cpuInventoryEl = document.getElementById('cpuInvList')
 const battleResult = document.getElementById('message')
-
+const resetButton = document.getElementById('reset-btn')
 
 /*-------------- Event Listeners ---------------*/
 document.getElementById('Bite').addEventListener('click', playGame)
@@ -51,10 +51,13 @@ document.getElementById('Garlic').addEventListener('click', playGame)
 document.getElementById('Silver Bullet').addEventListener('click', playGame)
 document.getElementById('Wooden Stake').addEventListener('click', playGame)
 document.getElementById('Crossbow').addEventListener('click', playGame)
+document.getElementById('god').addEventListener('click', playGame)
+resetButton.addEventListener('click', resetGame)
 
 
 
 /*-------------- Functions -----------------*/
+
 
 function playGame(evt) {
   getPlayer1Choice(evt)
@@ -107,9 +110,14 @@ function getRandomWeapon(inv) {
 }
 
 function compareChoices() {
+  if (player1Choice === 'god') {
+    computerHp = 0
+  }
   //Draw condition
   if (player1Choice === computerChoice) {
     message = `You chose ${player1Choice}, the enemy chose ${computerChoice}. It's a draw! Nothing happens.`
+    updatePlayerInvDis()
+    updateCpuInvDis()
   } 
   //player bite cpu scratch
   else if (player1Choice === choices[0] && computerChoice === choices[1]) {
@@ -305,9 +313,11 @@ function updateMessage () {
 
 function checkWinner() {
   if (player1Hp <= 0) {
+    winner = true
     message = `GAME OVER. You lose! Don't give up, try again!`
   } 
   if (computerHp <= 0) {
+    winner = true
     message = `YOU WIN!!!!!!!! Go again?`
   }
   else {
@@ -315,6 +325,7 @@ function checkWinner() {
   }
   console.log(message);
 }
+
 
 //update the inventory on the screen after each state change in the game
 
@@ -337,7 +348,48 @@ function updateCpuInvDis() {
   })
 }
 
+//call the functions to show the initial inventories
 updatePlayerInvDis()
 updateCpuInvDis()
 
+function resetGame () {
+  //reset players health
+  player1Hp = 10
+  computerHp = 10
+  //set winner to false again
+  winner = false
+  //change the message back
+  message = `Make a choice to begin!`
+  //restock inventories
+  computerInventory = {
+    weapons: [
+      {name: 'Bite', quantity: Infinity}, 
+      {name: 'Scratch', quantity: Infinity},
+      {name: 'Garlic', quantity: Infinity},
+      {name: 'Silver Bullet', quantity: 2},
+      {name: 'Crossbow', quantity: 2 },
+      {name: 'Wooden Stake', quantity: 2}, 
+    ]
+  }
+  
+  player1Inventory = {
+    weapons: [
+      {name: 'Bite', quantity: Infinity}, 
+      {name: 'Scratch', quantity: Infinity},
+      {name: 'Garlic', quantity: Infinity},
+      {name: 'Silver Bullet', quantity: 2},
+      {name: 'Crossbow', quantity: 2},
+      {name: 'Wooden Stake', quantity: 2},
+    ]
+  }
+  //update the displays for user
+  updateCpuInvDis()
+  updatePlayerInvDis()
+  //ensure all the buttons are enabled again
+  choices.forEach(function (choice) {
+    document.getElementById(choice).disabled = false 
+  })
+updateMessage()
+  console.log('reset button clicked');
+}
 
