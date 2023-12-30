@@ -43,7 +43,7 @@ const player1InventoryEl = document.getElementById('player1InvList')
 const cpuInventoryEl = document.getElementById('cpuInvList')
 const battleResult = document.getElementById('message')
 const resetButton = document.getElementById('reset-btn')
-
+const choiceButtons = document.querySelectorAll('.choices')
 /*-------------- Event Listeners ---------------*/
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
@@ -92,7 +92,6 @@ function selectedWeapon(player1Choice) {
   } else {
     return selectedWeapon
   }
-  console.log(`You chose ${player1Choice}`);
 }
 
 //Will be more dynamic if I do not set it to just the computer's inventory
@@ -306,10 +305,6 @@ function compareChoices() {
     updateCpuInvDis()
     updatePlayerInvDis()
   }
-  console.log(player1Inventory);
-  console.log(computerInventory);
-  console.log(player1Hp);
-  console.log(computerHp);
 }
 
 function updateMessage () {
@@ -320,18 +315,26 @@ function checkWinner() {
   if (player1Hp <= 0) {
     winner = true
     message = `GAME OVER. You lose! Don't give up, try again!`
-    
+    gameOver()
   } 
   if (computerHp <= 0) {
     winner = true
     message = `YOU WIN!!!!!!!! Go again?`
+    gameOver()
   }
   else {
     return
   }
-  console.log(message);
 }
 
+//funciton to disable all the buttons if there is a winner
+function gameOver () {
+  if (winner) {
+    choiceButtons.forEach(button => {
+      button.disabled = true 
+    })
+  }
+}
 
 //update the inventory on the screen after each state change in the game
 
@@ -398,6 +401,7 @@ function resetGame () {
     document.getElementById(choice).disabled = false 
   })
 updateMessage()
+document.querySelector('#god').disabled = false
   console.log('reset button clicked');
 }
 
