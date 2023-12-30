@@ -81,8 +81,13 @@ function selectedWeapon(player1Choice) {
   if (selectedWeapon && selectedWeapon.quantity > 0) {
     //more dynamic way to reduce the quantity vs calling a function each time the weapon is used in the specific instance. 
     selectedWeapon.quantity--
-  } else if (selectedWeapon && selectedWeapon.quantity === 0) {
-    //disallow use of a weapon that is out of ammo
+  }
+  //button now will disable immediately when quantity is 0
+  //get the id of the button the user clicked on 
+  const buttonEl = document.getElementById(player1Choice)
+  //if they made a choice, the quantity is 0, and the button is not disabled, disable it. 
+  if (selectedWeapon && selectedWeapon.quantity <= 0 && !buttonEl.disabled) {
+    //disallow use of a weapon that has a quantity of 0
     document.getElementById(player1Choice).disabled = true
   } else {
     return selectedWeapon
@@ -315,6 +320,7 @@ function checkWinner() {
   if (player1Hp <= 0) {
     winner = true
     message = `GAME OVER. You lose! Don't give up, try again!`
+    
   } 
   if (computerHp <= 0) {
     winner = true
@@ -351,6 +357,8 @@ function updateCpuInvDis() {
 //call the functions to show the initial inventories
 updatePlayerInvDis()
 updateCpuInvDis()
+
+
 
 function resetGame () {
   //reset players health
