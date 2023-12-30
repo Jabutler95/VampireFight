@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./js/app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>vampirefight</title>
 </head>
@@ -24,20 +27,32 @@
     </div>
     <div id="message-div">
         <h2 id="message">Make a choice to begin!</h2>
-        <button id="reset-btn">Reset Game</button>
     </div>
-    <div id="inventory-div">
-        <div class="inventory" id="player1-inv">
-            <h3>Inventory</h3>
-            <ul id="player1InvList"></ul>
+    <div id="Inv-Hp">
+        <div id="playerInvHp" class="styleHpInv">
+            <div class="inventory" id="player1-inv">
+                <h3>Inventory</h3>
+                <ul id="player1InvList"></ul>
+            </div>
+            <div id="playerHp-div">
+                <h4 id="playerHp"></h4>
+            </div>
         </div>
-        <div class="inventory" id="cpu-inv">
-            <h3>Inventory</h3>
-            <ul id="cpuInvList"></ul>
+        <div id="comInvHp" class="styleHpInv">
+            <div class="inventory" id="cpu-inv">
+                <h3>Inventory</h3>
+                <ul id="cpuInvList"></ul>
+            </div>
+            <div id="computerHp-div">
+                <h4 id="computerHp"></h4>
+            </div>
         </div>
     </div>
-    <div id="game-field"><p>Game Field</p></div>
+    <div id="game-field">
+        <p>Game Field</p>
+    </div>
     <div id="player-choices">
+        <button id="reset-btn">Reset Game</button>
         <button class="choices" id="Bite">Bite</button>
         <button class="choices" id="Scratch">Scratch</button>
         <button class="choices" id="Garlic">Garlic</button>

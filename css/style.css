@@ -1,10 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+
+body {
+  background-color: #726E6D;
+}
 #title-div {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  font-family: 'Rubik Glitch', sans-serif;
+  color: black;
+  text-shadow: 1px 1px 2px crimson;
+ font-size: 35px;
 }
 
 #rules-div {
@@ -25,10 +33,14 @@
   justify-content: space-between;
 }
 
-#inventory-div {
-  border: 2px solid black;
+#Inv-Hp {
   display: flex;
   justify-content: space-between;
+}
+
+.styleHpInv {
+  display: flex;
+  flex-direction: column;
 }
 
 #game-field {
@@ -38,7 +50,8 @@
 
 #player-choices {
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-start;
+  background-color: lightslategray;
 }
 
 #player1-choices {
@@ -55,3 +68,4 @@
   padding: 5px;
   margin: 5px;
 }
+

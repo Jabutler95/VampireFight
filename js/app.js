@@ -44,6 +44,8 @@ const cpuInventoryEl = document.getElementById('cpuInvList')
 const battleResult = document.getElementById('message')
 const resetButton = document.getElementById('reset-btn')
 const choiceButtons = document.querySelectorAll('.choices')
+const comHp = document.getElementById('computerHp')
+const playHp = document.getElementById('playerHp')
 /*-------------- Event Listeners ---------------*/
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
@@ -58,7 +60,7 @@ resetButton.addEventListener('click', resetGame)
 
 /*-------------- Functions -----------------*/
 
-
+updateHP()
 function playGame(evt) {
   getPlayer1Choice(evt)
   computerChoice = getRandomWeapon(computerInventory)
@@ -128,104 +130,122 @@ function compareChoices() {
     message = `You chose Bite and the enemy chose Scratch you gain 1 HP and deal 1 damage.`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
+    updateHP ()
   } 
   //player bite cpu garlic
   else if (player1Choice === choices[0] && computerChoice === choices[2]) {
     message = `You chose Bite and the enemy chose Garlic! The enemy stole 1HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
+    updateHP ()
   } 
   //player bite cpu silver bullet
   else if (player1Choice === choices[0] && computerChoice === choices[3]) {
     message = `You chose Bite and the enemy chose silver bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
     updateCpuInvDis()
+    updateHP ()
   } 
   //player bite cpu crossbow
   else if (player1Choice === choices[0] && computerChoice === choices[5]) {
     message = `You chose Bite and the enemy chose stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
     updateCpuInvDis()
+    updateHP ()
   } 
   //player bite cpu wooden stake
   else if (player1Choice === choices[0] && computerChoice === choices[4]) {
     message = `You chose Bite and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
     updateCpuInvDis()
+    updateHP ()
   }
   //player scratch cpu bite
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {
     message = `You chose Scratch and the enemy chose Bite! You lose 1 HP!`
     player1Hp = player1Hp - 1
+    updateHP ()
   }
   //player scratch cpu garlic
   else if (player1Choice === choices[1] && computerChoice === choices[2]) {
     message = `You chose Scratch and the enemy chose Garlic! You gain 1 HP!`
     player1Hp = player1Hp + 1
+    updateHP ()
   }
   //player scratch cpu silver bullet
   else if (player1Choice === choices[1] && computerChoice === choices[3]) {
     message = `You chose Scratch and the enemy chose Silver Bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
     updateCpuInvDis()
+    updateHP ()
   }
   //player scratch cpu crossbow
   else if (player1Choice === choices[1] && computerChoice === choices[4]) {
     message = `You chose Scratch and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
     updateCpuInvDis()
+    updateHP ()
   }
   //player scratch cpu stake
   else if (player1Choice === choices[1] && computerChoice === choices[5]) {
     message = `You chose Scratch and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
     updateCpuInvDis()
+    updateHP ()
   }
   //player garlic cpu bite
   else if (player1Choice === choices[2] && computerChoice === choices[0]) {
     message = `You chose Garlic and the enemy chose Bite! You gain 1 HP!`
     player1Hp = player1Hp + 1
+    updateHP ()
   }
   //player garlic cpu scratch
   else if (player1Choice === choices[2] && computerChoice === choices[1]) {
     message = `You chose Garlic and the enemy chose Scratch! You lose 1 HP!`
     player1Hp = player1Hp - 1
+    updateHP ()
   }
   //player garlic cpu silver bullet
   else if (player1Choice === choices[2] && computerChoice === choices[3]) {
     message = `You chose Garlic and the enemy chose Silver Bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
     updateCpuInvDis()
+    updateHP ()
   }
   //player garlic cpu crossbow
   else if (player1Choice === choices[2] && computerChoice === choices[4]) {
     message = `You chose Garlic and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
     updateCpuInvDis()
+    updateHP ()
   }
   //player garlic cpu wooden stake
   else if (player1Choice === choices[2] && computerChoice === choices[5]) {
     message = `You chose Garlic and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
     updateCpuInvDis()
+    updateHP ()
   }
   //player silver bullet cpu bite
   else if (player1Choice === choices[3] && computerChoice === choices[0]) {
     message = `You chose Silver Bullet and the enemy chose Bite! You deal 2 damage!`
     computerHp = computerHp - 2
     updatePlayerInvDis()
+    updateHP ()
   }
   //player silver bullet cpu scratch 
   else if (player1Choice === choices[3] && computerChoice === choices[1]) {
     message = `You chose Silver Bullet and the enemy chose Scratch! You deal 2 damage!`
     computerHp = computerHp - 2
     updatePlayerInvDis()
+    updateHP ()
   }
   //player silver bullet cpu garlic 
   else if (player1Choice === choices[3] && computerChoice === choices[2]) {
     message = `You chose Silver Bullet and the enemy chose Garlic! You deal 2 damage!`
     computerHp = computerHp - 2
     updatePlayerInvDis()
+    updateHP ()
   }
   //player silver bullet cpu crossbow 
   else if (player1Choice === choices[3] && computerChoice === choices[4]) {
@@ -233,6 +253,7 @@ function compareChoices() {
     player1Hp = player1Hp - 1
     updateCpuInvDis()
     updatePlayerInvDis()
+    updateHP ()
   }
   //player silver bullet cpu wooden stake
   else if (player1Choice === choices[3] && computerChoice === choices[5]) {
@@ -240,24 +261,28 @@ function compareChoices() {
     computerHp = computerHp - 1
     updateCpuInvDis()
     updatePlayerInvDis()
+    updateHP ()
   }
   //player crossbow cpu bite
   else if (player1Choice === choices[4] && computerChoice === choices[0]) {
     message = `You chose Crossbow and the enemy chose Bite! You deal 3 damage!`
     computerHp = computerHp - 3
     updatePlayerInvDis()
+    updateHP ()
   }
   //player crossbow cpu scratch 
   else if (player1Choice === choices[4] && computerChoice === choices[1]) {
     message = `You chose Crossbow and the enemy chose Scratch! You deal 3 damage!`
     computerHp = computerHp - 3
     updatePlayerInvDis()
+    updateHP ()
   }
   //player crossbow cpu garlic 
   else if (player1Choice === choices[4] && computerChoice === choices[2]) {
     message = `You chose Crossbow and the enemy chose Garlic! You deal 3 damage!`
     computerHp = computerHp - 3
     updatePlayerInvDis()
+    updateHP ()
   }
   //player crossbow cpu silver bullet
   else if (player1Choice === choices[4] && computerChoice === choices[3]) {
@@ -265,6 +290,7 @@ function compareChoices() {
     computerHp = computerHp - 1
     updateCpuInvDis()
     updatePlayerInvDis()
+    updateHP ()
   }
   //player crossbow cpu wooden stake
   else if (player1Choice === choices[4] && computerChoice === choices[5]) {
@@ -272,24 +298,28 @@ function compareChoices() {
     computerHp = computerHp - 2
     updateCpuInvDis()
     updatePlayerInvDis()
+    updateHP ()
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
     message = `You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!`
     computerHp = computerHp - 1
     updatePlayerInvDis()
+    updateHP ()
   }
   //player wooden stake cpu scratch 
   else if (player1Choice === choices[5] && computerChoice === choices[1]) {
     message = `You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!`
     computerHp = computerHp - 1
     updatePlayerInvDis()
+    updateHP ()
   }
   //player wooden stake cpu Garlic 
   else if (player1Choice === choices[5] && computerChoice === choices[2]) {
     message = `You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!`
     computerHp = computerHp - 1
     updatePlayerInvDis()
+    updateHP ()
   }
   //player wooden stake cpu silver bullet
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
@@ -297,6 +327,7 @@ function compareChoices() {
     player1Hp = player1Hp - 1
     updateCpuInvDis()
     updatePlayerInvDis()
+    updateHP ()
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
@@ -304,6 +335,7 @@ function compareChoices() {
     player1Hp = player1Hp - 2
     updateCpuInvDis()
     updatePlayerInvDis()
+    updateHP ()
   }
 }
 
@@ -361,12 +393,16 @@ function updateCpuInvDis() {
 updatePlayerInvDis()
 updateCpuInvDis()
 
-
+function updateHP () {
+  playHp.textContent = `User HP ${player1Hp}`
+  comHp.textContent = `Computer HP ${computerHp}`
+}
 
 function resetGame () {
   //reset players health
   player1Hp = 10
   computerHp = 10
+  updateHP()
   //set winner to false again
   winner = false
   //change the message back
