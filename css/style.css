@@ -1,30 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 
 body {
-  background-color: #726E6D;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'DotGothic16', sans-serif;
+  color: white;
 }
+#background {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url("../assets/fotor-ai-20240101134019.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  height: 100vh;
+}
+
 #title-div {
-  border: 2px solid black;
+  height: 10vh;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Rubik Glitch', sans-serif;
-  color: black;
+  font-family: 'Silkscreen', sans-serif;
+  color: gray;
   text-shadow: 1px 1px 2px crimson;
- font-size: 35px;
+  font-size: 35px;
 }
 
 #rules-div {
-  border: 2px solid black;
   justify-content: flex-start;
 }
 
+#forStyle {
+  display: flex;
+  justify-content: center;
+}
 #message-div {
-  border: 2px solid black;
+  background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox='0 0 80 88' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 21.91V26h-2c-9.94 0-18 8.06-18 18 0 9.943 8.058 18 18 18h2v4.09c8.012.722 14.785 5.738 18 12.73 3.212-6.99 9.983-12.008 18-12.73V62h2c9.94 0 18-8.06 18-18 0-9.943-8.058-18-18-18h-2v-4.09c-8.012-.722-14.785-5.738-18-12.73-3.212 6.99-9.983 12.008-18 12.73zM54 58v4.696c-5.574 1.316-10.455 4.428-14 8.69-3.545-4.262-8.426-7.374-14-8.69V58h-5.993C12.27 58 6 51.734 6 44c0-7.732 6.275-14 14.007-14H26v-4.696c5.574-1.316 10.455-4.428 14-8.69 3.545 4.262 8.426 7.374 14 8.69V30h5.993C67.73 30 74 36.266 74 44c0 7.732-6.275 14-14.007 14H54zM42 88c0-9.94 8.06-18 18-18h2v-4.09c8.016-.722 14.787-5.738 18-12.73v7.434c-3.545 4.262-8.426 7.374-14 8.69V74h-5.993C52.275 74 46 80.268 46 88h-4zm-4 0c0-9.943-8.058-18-18-18h-2v-4.09c-8.012-.722-14.785-5.738-18-12.73v7.434c3.545 4.262 8.426 7.374 14 8.69V74h5.993C27.73 74 34 80.266 34 88h4zm4-88c0 9.943 8.058 18 18 18h2v4.09c8.012.722 14.785 5.738 18 12.73v-7.434c-3.545-4.262-8.426-7.374-14-8.69V14h-5.993C52.27 14 46 7.734 46 0h-4zM0 34.82c3.213-6.992 9.984-12.008 18-12.73V18h2c9.94 0 18-8.06 18-18h-4c0 7.732-6.275 14-14.007 14H14v4.696c-5.574 1.316-10.455 4.428-14 8.69v7.433z' fill='%23610444' fill-opacity='0.49' fill-rule='evenodd'/%3E%3C/svg%3E");
+  border: 6px solid #301934;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px;
 }
 
 #username-div {
@@ -44,14 +66,22 @@ body {
 }
 
 #game-field {
-  border: 2px solid black;
-  height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
 }
 
 #player-choices {
   display: flex;
-  justify-content:flex-start;
-  background-color: lightslategray;
+  justify-content:space-evenly;
+  background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox='0 0 80 88' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 21.91V26h-2c-9.94 0-18 8.06-18 18 0 9.943 8.058 18 18 18h2v4.09c8.012.722 14.785 5.738 18 12.73 3.212-6.99 9.983-12.008 18-12.73V62h2c9.94 0 18-8.06 18-18 0-9.943-8.058-18-18-18h-2v-4.09c-8.012-.722-14.785-5.738-18-12.73-3.212 6.99-9.983 12.008-18 12.73zM54 58v4.696c-5.574 1.316-10.455 4.428-14 8.69-3.545-4.262-8.426-7.374-14-8.69V58h-5.993C12.27 58 6 51.734 6 44c0-7.732 6.275-14 14.007-14H26v-4.696c5.574-1.316 10.455-4.428 14-8.69 3.545 4.262 8.426 7.374 14 8.69V30h5.993C67.73 30 74 36.266 74 44c0 7.732-6.275 14-14.007 14H54zM42 88c0-9.94 8.06-18 18-18h2v-4.09c8.016-.722 14.787-5.738 18-12.73v7.434c-3.545 4.262-8.426 7.374-14 8.69V74h-5.993C52.275 74 46 80.268 46 88h-4zm-4 0c0-9.943-8.058-18-18-18h-2v-4.09c-8.012-.722-14.785-5.738-18-12.73v7.434c3.545 4.262 8.426 7.374 14 8.69V74h5.993C27.73 74 34 80.266 34 88h4zm4-88c0 9.943 8.058 18 18 18h2v4.09c8.012.722 14.785 5.738 18 12.73v-7.434c-3.545-4.262-8.426-7.374-14-8.69V14h-5.993C52.27 14 46 7.734 46 0h-4zM0 34.82c3.213-6.992 9.984-12.008 18-12.73V18h2c9.94 0 18-8.06 18-18h-4c0 7.732-6.275 14-14.007 14H14v4.696c-5.574 1.316-10.455 4.428-14 8.69v7.433z' fill='%23610444' fill-opacity='0.49' fill-rule='evenodd'/%3E%3C/svg%3E");
+  height: 7vh;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  border-top: 5px inset maroon;
+
 }
 
 #player1-choices {
@@ -67,5 +97,23 @@ body {
   display: flex;
   padding: 5px;
   margin: 5px;
+  
 }
 
+#reset-btn {
+  border: 2px solid black;
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+}
+
+.vampires {
+  display: flex;
+  height: 350px;
+}
+
+img {
+  max-width: 100%; 
+  height: auto; 
+  display: flex;
+}

@@ -6,60 +6,67 @@
     <script defer src="./js/app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>vampirefight</title>
 </head>
 <body>
     <div id="title-div">
         <h1 id="game-title">Vampire Fight</h1>
-    </div>    
-    <div id="rules-div">   
-        <h2 id="rules-title">Rules:</h2>
-        <ul>
-            <li>Bite wins vs Scratch and will gain you 1 HP.</li>
-            <li>Scratch wins vs Garlic and will gain you 1 HP.</li>
-            <li>Garlic wins vs Bite and will gain you 1 HP.</li>
-            <li>Silver Bullet will take away 3 HP from the opponent, but you only have 2 shots.</li>
-            <li>Stake will take away 2 HP from the opponent, but you only have 2</li>
-            <li>Crossbow does 4 damage, but you only have 1 shot.</li>
-    </ul>
-    </div>
-    <div id="message-div">
-        <h2 id="message">Make a choice to begin!</h2>
-    </div>
-    <div id="Inv-Hp">
-        <div id="playerInvHp" class="styleHpInv">
-            <div class="inventory" id="player1-inv">
-                <h3>Inventory</h3>
-                <ul id="player1InvList"></ul>
-            </div>
-            <div id="playerHp-div">
-                <h4 id="playerHp"></h4>
+    </div> 
+    <div id="background">   
+        <div id="rules-div">   
+            <h2 id="rules-title">Rules:</h2>
+            <ul>
+                <li>Bite wins vs Scratch and will gain you 1 HP.</li>
+                <li>Scratch wins vs Garlic and will gain you 1 HP.</li>
+                <li>Garlic wins vs Bite and will gain you 1 HP.</li>
+                <li>Silver Bullet will take away 3 HP from the opponent, but you only have 2 shots.</li>
+                <li>Stake will take away 2 HP from the opponent, but you only have 2</li>
+                <li>Crossbow does 4 damage, but you only have 1 shot.</li>
+        </ul>
+        </div>
+        <div id="forStyle">
+            <div id="message-div">
+                <h2 id="message">Make a choice to begin!</h2>
             </div>
         </div>
-        <div id="comInvHp" class="styleHpInv">
-            <div class="inventory" id="cpu-inv">
-                <h3>Inventory</h3>
-                <ul id="cpuInvList"></ul>
+        <div id="Inv-Hp">
+            <div id="playerInvHp" class="styleHpInv">
+                <div class="inventory" id="player1-inv">
+                    <h3>Inventory</h3>
+                    <ul id="player1InvList"></ul>
+                </div>
+                <div id="playerHp-div">
+                    <h4 id="playerHp"></h4>
+                </div>
             </div>
-            <div id="computerHp-div">
-                <h4 id="computerHp"></h4>
+            <div id="comInvHp" class="styleHpInv">
+                <div class="inventory" id="cpu-inv">
+                    <h3>Inventory</h3>
+                    <ul id="cpuInvList"></ul>
+                </div>
+                <div id="computerHp-div">
+                    <h4 id="computerHp"></h4>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="game-field">
-        <p>Game Field</p>
-    </div>
-    <div id="player-choices">
-        <button id="reset-btn">Reset Game</button>
-        <button class="choices" id="Bite">Bite</button>
-        <button class="choices" id="Scratch">Scratch</button>
-        <button class="choices" id="Garlic">Garlic</button>
-        <button class="choices" id="Silver Bullet">Silver Bullet</button>
-        <button class="choices" id="Wooden Stake">Wooden Stake</button>
-        <button class="choices" id="Crossbow">Crossbow</button>
-        <button class="choices" id="god">God</button>
-    </div>   
+        <div id="game-field">
+            <div id="vampire1" class="vampires"><img src="./assets/Vampire1-fotor-bg-remover-20240101133532.png" alt="User Vampire" id="userVamp"></div>
+            <div id="vampire2" class="vampires"><img src="./assets/Vampire2-fotor-bg-remover-20240101133510.png" alt="Computer Vampire"></div>
+        </div>
+        <div id="player-choices">
+            <button id="reset-btn">Reset Game</button>
+            <button  id="Bite" class="choices">Bite</button>
+            <button class="choices" id="Scratch">Scratch</button>
+            <button class="choices" id="Garlic">Garlic</button>
+            <button class="choices" id="Silver Bullet">Silver Bullet</button>
+            <button class="choices" id="Wooden Stake">Wooden Stake</button>
+            <button class="choices" id="Crossbow">Crossbow</button>
+            <button class="choices" id="god">God</button>
+        </div>
+    </div>  
 </body>
 </html>
