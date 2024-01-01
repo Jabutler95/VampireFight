@@ -394,8 +394,8 @@ updatePlayerInvDis()
 updateCpuInvDis()
 
 function updateHP () {
-  playHp.textContent = `❤️ HP: ${player1Hp}`
-  comHp.textContent = `Computer HP ❤️: ${computerHp}`
+  playHp.textContent = `Vladdy Daddy ❤️ : ${player1Hp}`
+  comHp.textContent = `Vladamir Pootin ❤️ : ${computerHp}`
 }
 
 function resetGame () {
