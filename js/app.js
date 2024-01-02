@@ -46,6 +46,7 @@ const resetButton = document.getElementById('reset-btn')
 const choiceButtons = document.querySelectorAll('.choices')
 const comHp = document.getElementById('computerHp')
 const playHp = document.getElementById('playerHp')
+const backgroundMusic = new Audio('../')
 /*-------------- Event Listeners ---------------*/
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)

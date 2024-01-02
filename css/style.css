@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: url("../assets/fotor-ai-20240101134019.jpg");
+  background-image: url("../Images/Background.jpg");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -112,10 +112,23 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox=
 }
 
 #reset-btn {
+  background-color: #301934;
   border: 2px solid black;
+  color: white;
+  font-family: 'DotGothic16', sans-serif;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
   margin: 5px;
+  border-color: #66635B;
+  border-radius: 16px;
+  border-style: solid;
+  width: 80px;
+}
+
+#reset-btn:hover {
+  background-color: #8963BA;
 }
 
 .vampires {
