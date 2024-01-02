@@ -45,9 +45,9 @@ const battleResult = document.getElementById('message')
 const resetButton = document.getElementById('reset-btn')
 const choiceButtons = document.querySelectorAll('.choices')
 const comHp = document.getElementById('computerHp')
+const playHp = document.getElementById('playerHp')
 
 /*---------- Audio Elements and Functions------*/
-const playHp = document.getElementById('playerHp')
 const backgroundMusic = new Audio('../Audio/CreepyBackgroundMusic.mp3')
 const playPauseBtn = document.getElementById('playPauseBtn')
 const volumeControl = document.getElementById('volumeControl')

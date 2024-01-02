@@ -126,10 +126,22 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox=
   border-style: solid;
   width: 80px;
 }
-
-#
-
 #reset-btn:hover {
+  background-color: #8963BA;
+}
+
+#playPauseBtn {
+  background-color: #301934;
+  border: 2px solid black;
+  color: white;
+  font-family: 'DotGothic16', sans-serif;
+  border-color: #66635B;
+  border-radius: 8px;
+  border-style: solid;
+  padding: 5px;
+  margin: 5px;
+}
+#playPauseBtn:hover {
   background-color: #8963BA;
 }
 
