@@ -45,8 +45,35 @@ const battleResult = document.getElementById('message')
 const resetButton = document.getElementById('reset-btn')
 const choiceButtons = document.querySelectorAll('.choices')
 const comHp = document.getElementById('computerHp')
+
+/*---------- Audio Elements and Functions------*/
 const playHp = document.getElementById('playerHp')
-const backgroundMusic = new Audio('../')
+const backgroundMusic = new Audio('../Audio/CreepyBackgroundMusic.mp3')
+const playPauseBtn = document.getElementById('playPauseBtn')
+const volumeControl = document.getElementById('volumeControl')
+//loop the audio 
+backgroundMusic.loop = true
+//functionality to the play/pause button
+playPauseBtn.addEventListener('click', playPauseMusic)
+//functionality to the slider to adjust volume 
+volumeControl.addEventListener('input', function(evt) {
+  backgroundMusic.volume = volumeControl.value
+})
+let musicPlayed = false
+let musicPaused = false 
+function playPauseMusic (evt) {
+  if (musicPaused) {
+    backgroundMusic.play()
+    musicPaused = false
+    playPauseBtn.textContent = 'Pause Music'
+  } else {
+    backgroundMusic.pause()
+    musicPaused = true
+    playPauseBtn.textContent = 'Play Music'
+  }
+}
+
+
 /*-------------- Event Listeners ---------------*/
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
@@ -56,13 +83,14 @@ document.getElementById('Wooden Stake').addEventListener('click', playGame)
 document.getElementById('Crossbow').addEventListener('click', playGame)
 document.getElementById('god').addEventListener('click', playGame)
 resetButton.addEventListener('click', resetGame)
-
-
-
 /*-------------- Functions -----------------*/
-
 updateHP()
 function playGame(evt) {
+  if (musicPlayed === false) {
+    backgroundMusic.play()
+    backgroundMusic.volume = volumeControl.value
+    musicPlayed = true
+  }
   getPlayer1Choice(evt)
   computerChoice = getRandomWeapon(computerInventory)
   compareChoices()
