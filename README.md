@@ -3,6 +3,9 @@ Unit 1 Project. Browser based game.
 
 
 References:
+Tie sound effect by MacKaffee. Retrieved from:
+https://freesound.org/people/MacKaffee/sounds/326143/
+
 Background music by dAmbient. Made in FL Studio. Retrieved from:
 https://freesound.org/people/dAmbient/sounds/251936/ 
 

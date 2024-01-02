@@ -48,6 +48,7 @@ const comHp = document.getElementById('computerHp')
 const playHp = document.getElementById('playerHp')
 
 /*---------- Audio Elements and Functions------*/
+const tieEffect = new Audio('../Audio/Tie.mp3')
 const biteEffect = new Audio('../Audio/Bite.mp3')
 const crossbowEffect = new Audio('../Audio/Crossbow.mp3')
 const garlicEffect = new Audio('../Audio/Garlic.mp3')
@@ -157,12 +158,14 @@ function compareChoices() {
   if (player1Choice === 'god') {
     computerHp = 0
     godEffect.play()
+    godEffect.volume = 0.1
   }
   //Draw condition
   if (player1Choice === computerChoice) {
     message = `You chose ${player1Choice}, the enemy chose ${computerChoice}. It's a draw! Nothing happens.`
     updatePlayerInvDis()
     updateCpuInvDis()
+    tieEffect.play()
   } 
   //player bite cpu scratch
   else if (player1Choice === choices[0] && computerChoice === choices[1]) {
@@ -171,6 +174,7 @@ function compareChoices() {
     computerHp = computerHp - 1
     updateHP ()
     biteEffect.play()
+    biteEffect.volume = 0.2
   } 
   //player bite cpu garlic
   else if (player1Choice === choices[0] && computerChoice === choices[2]) {
@@ -179,6 +183,7 @@ function compareChoices() {
     computerHp = computerHp + 1
     updateHP ()
     garlicEffect.play()
+    garlicEffect.volume = 0.2
   } 
   //player bite cpu silver bullet
   else if (player1Choice === choices[0] && computerChoice === choices[3]) {
@@ -187,6 +192,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   } 
   //player bite cpu crossbow
   else if (player1Choice === choices[0] && computerChoice === choices[5]) {
@@ -195,6 +201,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   } 
   //player bite cpu wooden stake
   else if (player1Choice === choices[0] && computerChoice === choices[4]) {
@@ -203,6 +210,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     woodenStakeEffect.play()
+    woodenStakeEffect.volume = 0.2
   }
   //player scratch cpu bite
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {
@@ -210,6 +218,7 @@ function compareChoices() {
     player1Hp = player1Hp - 1
     updateHP ()
     biteEffect.play()
+    biteEffect.volume = 0.2
   }
   //player scratch cpu garlic
   else if (player1Choice === choices[1] && computerChoice === choices[2]) {
@@ -217,6 +226,7 @@ function compareChoices() {
     player1Hp = player1Hp + 1
     updateHP ()
     scratchEffect.play()
+    scratchEffect.volume = 0.2
   }
   //player scratch cpu silver bullet
   else if (player1Choice === choices[1] && computerChoice === choices[3]) {
@@ -225,6 +235,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player scratch cpu crossbow
   else if (player1Choice === choices[1] && computerChoice === choices[4]) {
@@ -233,6 +244,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player scratch cpu stake
   else if (player1Choice === choices[1] && computerChoice === choices[5]) {
@@ -241,6 +253,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     woodenStakeEffect.play()
+    woodenStakeEffect.volume = 0.2
   }
   //player garlic cpu bite
   else if (player1Choice === choices[2] && computerChoice === choices[0]) {
@@ -248,6 +261,7 @@ function compareChoices() {
     player1Hp = player1Hp + 1
     updateHP ()
     garlicEffect.play()
+    garlicEffect.volume = 0.2
   }
   //player garlic cpu scratch
   else if (player1Choice === choices[2] && computerChoice === choices[1]) {
@@ -255,6 +269,7 @@ function compareChoices() {
     player1Hp = player1Hp - 1
     updateHP ()
     scratchEffect.play()
+    scratchEffect.volume = 0.2
   }
   //player garlic cpu silver bullet
   else if (player1Choice === choices[2] && computerChoice === choices[3]) {
@@ -263,6 +278,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player garlic cpu crossbow
   else if (player1Choice === choices[2] && computerChoice === choices[4]) {
@@ -271,6 +287,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player garlic cpu wooden stake
   else if (player1Choice === choices[2] && computerChoice === choices[5]) {
@@ -279,6 +296,7 @@ function compareChoices() {
     updateCpuInvDis()
     updateHP ()
     woodenStakeEffect.play()
+    woodenStakeEffect.volume = 0.2
   }
   //player silver bullet cpu bite
   else if (player1Choice === choices[3] && computerChoice === choices[0]) {
@@ -287,6 +305,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player silver bullet cpu scratch 
   else if (player1Choice === choices[3] && computerChoice === choices[1]) {
@@ -295,6 +314,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player silver bullet cpu garlic 
   else if (player1Choice === choices[3] && computerChoice === choices[2]) {
@@ -303,6 +323,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player silver bullet cpu crossbow 
   else if (player1Choice === choices[3] && computerChoice === choices[4]) {
@@ -312,6 +333,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player silver bullet cpu wooden stake
   else if (player1Choice === choices[3] && computerChoice === choices[5]) {
@@ -321,6 +343,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player crossbow cpu bite
   else if (player1Choice === choices[4] && computerChoice === choices[0]) {
@@ -329,6 +352,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player crossbow cpu scratch 
   else if (player1Choice === choices[4] && computerChoice === choices[1]) {
@@ -337,6 +361,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player crossbow cpu garlic 
   else if (player1Choice === choices[4] && computerChoice === choices[2]) {
@@ -345,6 +370,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player crossbow cpu silver bullet
   else if (player1Choice === choices[4] && computerChoice === choices[3]) {
@@ -354,6 +380,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player crossbow cpu wooden stake
   else if (player1Choice === choices[4] && computerChoice === choices[5]) {
@@ -363,6 +390,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
@@ -371,6 +399,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     woodenStakeEffect.play()
+    woodenStakeEffect.volume = 0.2
   }
   //player wooden stake cpu scratch 
   else if (player1Choice === choices[5] && computerChoice === choices[1]) {
@@ -379,6 +408,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     woodenStakeEffect.play()
+    woodenStakeEffect.volume = 0.2
   }
   //player wooden stake cpu Garlic 
   else if (player1Choice === choices[5] && computerChoice === choices[2]) {
@@ -387,6 +417,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     woodenStakeEffect.play()
+    woodenStakeEffect.volume = 0.2
   }
   //player wooden stake cpu silver bullet
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
@@ -396,6 +427,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     silverBulletEffect.play()
+    silverBulletEffect.volume = 0.2
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
@@ -405,6 +437,7 @@ function compareChoices() {
     updatePlayerInvDis()
     updateHP ()
     crossbowEffect.play()
+    crossbowEffect.volume = 0.2
   }
 }
 
@@ -417,11 +450,13 @@ function checkWinner() {
     winner = true
     message = `GAME OVER. You lose! Don't give up, try again!`
     gameOver()
+    loserEffect.play()
   } 
   if (computerHp <= 0) {
     winner = true
     message = `YOU WIN!!!!!!!! Go again?`
     gameOver()
+    winnerEffect.play()
   }
   else {
     return

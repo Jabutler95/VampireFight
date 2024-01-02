@@ -16,7 +16,7 @@
     <div id="title-div">
         <h1 id="game-title">Vampire Fight</h1>
         <button id="playPauseBtn">Pause Music</button>
-        <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" >
+        <input type="range" id="volumeControl" min="0" max="0.1" step="0.01" value="0.01" >
     </div> 
     <div id="background">   
         <div id="rules-div">   
@@ -38,16 +38,18 @@
         <div id="Inv-Hp">
             <div id="playerInvHp" class="styleHpInv">
                 <div class="inventory" id="player1-inv">
-                    <h3>Inventory</h3>
+                    <h3 class="inv-h3">Inventory:</h3>
                     <ul id="player1InvList"></ul>
                 </div>
                 <div id="playerHp-div">
                     <h4 id="playerHp"></h4>
                 </div>
             </div>
+            <div id="vampire1" class="vampires"><img src="./Images/Vampire1.png" alt="User Vampire" id="userVamp"></div>
+            <div id="vampire2" class="vampires"><img src="./Images/Vampire2.png" alt="Computer Vampire"></div>
             <div id="comInvHp" class="styleHpInv">
                 <div class="inventory" id="cpu-inv">
-                    <h3>Inventory</h3>
+                    <h3 class="inv-h3">Inventory:</h3>
                     <ul id="cpuInvList"></ul>
                 </div>
                 <div id="computerHp-div">
@@ -55,10 +57,8 @@
                 </div>
             </div>
         </div>
-        <div id="game-field">
-            <div id="vampire1" class="vampires"><img src="./Images/Vampire1.png" alt="User Vampire" id="userVamp"></div>
-            <div id="vampire2" class="vampires"><img src="./Images/Vampire2.png" alt="Computer Vampire"></div>
-        </div>
+        <!-- <div id="game-field">
+        </div> -->
         <div id="player-choices">
             <button id="reset-btn">Reset Game</button>
             <button  id="Bite" class="choices">Bite</button>
