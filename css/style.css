@@ -88,6 +88,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox=
 .inv-h3 {
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .inventory {
@@ -109,8 +111,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox=
 
 #Inv-Hp {
   display: flex;
-  justify-content: space-evenly;
-
+  justify-content: space-between;
+  height: 50vh;
+  align-self: flex-end;
 }
 
 #playerHp-div {
@@ -141,7 +144,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox=
 /* #game-field {
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-end;
+  align-items: flex-start;
 } */
 
 #player-choices {
@@ -231,8 +234,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox=
   height: 350px;
 }
 
-img {
+
+/* img {
   max-width: 100%; 
   height: auto; 
   display: flex;
-}
+} */

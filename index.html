@@ -11,6 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>vampirefight</title>
+    <link 
+    id="favicon"
+    rel="icon"
+    href="./Images/Vampire1.png"
+    sizes="32x32">
 </head>
 <body>
     <div id="title-div">
@@ -37,27 +42,29 @@
         </div>
         <div id="Inv-Hp">
             <div id="playerInvHp" class="styleHpInv">
+                <div id="playerHp-div">
+                    <h4 id="playerHp"></h4>
+                </div>
                 <div class="inventory" id="player1-inv">
                     <h3 class="inv-h3">Inventory:</h3>
                     <ul id="player1InvList"></ul>
-                </div>
-                <div id="playerHp-div">
-                    <h4 id="playerHp"></h4>
                 </div>
             </div>
             <div id="vampire1" class="vampires"><img src="./Images/Vampire1.png" alt="User Vampire" id="userVamp"></div>
             <div id="vampire2" class="vampires"><img src="./Images/Vampire2.png" alt="Computer Vampire"></div>
             <div id="comInvHp" class="styleHpInv">
+                <div id="computerHp-div">
+                    <h4 id="computerHp"></h4>
+                </div>
                 <div class="inventory" id="cpu-inv">
                     <h3 class="inv-h3">Inventory:</h3>
                     <ul id="cpuInvList"></ul>
                 </div>
-                <div id="computerHp-div">
-                    <h4 id="computerHp"></h4>
-                </div>
             </div>
         </div>
         <!-- <div id="game-field">
+            <div id="vampire1" class="vampires"><img src="./Images/Vampire1.png" alt="User Vampire" id="userVamp"></div>
+            <div id="vampire2" class="vampires"><img src="./Images/Vampire2.png" alt="Computer Vampire"></div>
         </div> -->
         <div id="player-choices">
             <button id="reset-btn">Reset Game</button>
