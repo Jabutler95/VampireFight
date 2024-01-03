@@ -34,9 +34,9 @@ let player1Inventory = {
 
 let player1Choice, computerChoice, message
 let gameIsOver = false
-player1Hp = 10
-computerHp = 10
-winner = false
+let player1Hp = 10
+let computerHp = 10
+let winner = false
 
 /*-------- Cached Element References-------*/
 const player1InventoryEl = document.getElementById('player1InvList')
@@ -63,12 +63,13 @@ const playPauseBtn = document.getElementById('playPauseBtn')
 const volumeControl = document.getElementById('volumeControl')
 //loop the audio 
 backgroundMusic.loop = true
-//functionality to the play/pause button
 playPauseBtn.addEventListener('click', playPauseMusic)
 //functionality to the slider to adjust volume 
 volumeControl.addEventListener('input', function(evt) {
   backgroundMusic.volume = volumeControl.value
 })
+
+//functionality to the play/pause button
 let musicPlayed = false
 let musicPaused = false 
 function playPauseMusic (evt) {
