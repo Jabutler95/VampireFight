@@ -33,7 +33,7 @@ let player1Inventory = {
 }
 
 let player1Choice, computerChoice, message
-
+let gameIsOver = false
 player1Hp = 10
 computerHp = 10
 winner = false
@@ -159,6 +159,7 @@ function compareChoices() {
     computerHp = 0
     godEffect.play()
     godEffect.volume = 0.1
+    updateHP()
   }
   //Draw condition
   if (player1Choice === computerChoice) {
@@ -194,16 +195,16 @@ function compareChoices() {
     silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
   } 
-  //player bite cpu crossbow
+  //player bite cpu Wooden Stake
   else if (player1Choice === choices[0] && computerChoice === choices[5]) {
-    message = `You chose Bite and the enemy chose stake! You lose 1 HP!`
+    message = `You chose Bite and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
     updateCpuInvDis()
     updateHP()
     crossbowEffect.play()
     crossbowEffect.volume = 0.2
   } 
-  //player bite cpu wooden stake
+  //player bite cpu Crossbow
   else if (player1Choice === choices[0] && computerChoice === choices[4]) {
     message = `You chose Bite and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
@@ -216,6 +217,7 @@ function compareChoices() {
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {
     message = `You chose Scratch and the enemy chose Bite! You lose 1 HP!`
     player1Hp = player1Hp - 1
+    computerHp = computerHp + 1
     updateHP ()
     biteEffect.play()
     biteEffect.volume = 0.2
@@ -224,6 +226,7 @@ function compareChoices() {
   else if (player1Choice === choices[1] && computerChoice === choices[2]) {
     message = `You chose Scratch and the enemy chose Garlic! You gain 1 HP!`
     player1Hp = player1Hp + 1
+    computerHp = computerHp - 1
     updateHP ()
     scratchEffect.play()
     scratchEffect.volume = 0.2
@@ -259,6 +262,7 @@ function compareChoices() {
   else if (player1Choice === choices[2] && computerChoice === choices[0]) {
     message = `You chose Garlic and the enemy chose Bite! You gain 1 HP!`
     player1Hp = player1Hp + 1
+    computerHp = computerHp - 1
     updateHP ()
     garlicEffect.play()
     garlicEffect.volume = 0.2
@@ -267,6 +271,7 @@ function compareChoices() {
   else if (player1Choice === choices[2] && computerChoice === choices[1]) {
     message = `You chose Garlic and the enemy chose Scratch! You lose 1 HP!`
     player1Hp = player1Hp - 1
+    computerHp = computerHp + 1
     updateHP ()
     scratchEffect.play()
     scratchEffect.volume = 0.2
@@ -500,6 +505,14 @@ updateCpuInvDis()
 function updateHP () {
   playHp.textContent = `Vladdy Daddy ❤️ : ${player1Hp}`
   comHp.textContent = `Vladamir Pootin ❤️ : ${computerHp}`
+  if (player1Hp <= 0 && !gameIsOver) {
+    document.getElementById('user-Vamp').style.animation = 'rotateVampire 30s'
+    gameIsOver = true 
+  }
+  if (computerHp <= 0 && !gameIsOver) {
+    document.getElementById('Computer-Vamp').style.animation = 'rotateVampire 30s'
+    gameIsOver = true
+  }
 }
 
 function resetGame () {
@@ -540,8 +553,10 @@ function resetGame () {
   choices.forEach(function (choice) {
     document.getElementById(choice).disabled = false 
   })
-updateMessage()
-document.querySelector('#god').disabled = false
-  console.log('reset button clicked');
+  updateMessage()
+  document.querySelector('#god').disabled = false
+  gameIsOver = false
+  document.getElementById('user-Vamp').style.animation = ''
+  document.getElementById('Computer-Vamp').style.animation = ''
 }
 
