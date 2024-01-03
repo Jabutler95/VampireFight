@@ -11,6 +11,7 @@ Why this game?:
 I chose to create this game because I love all things horror. Adding a touch of humor to this game really made it come to life create a more enjoyable experience for a user. 
 
 Getting Started:
+ https://vampirefight.netlify.app
 
   Your choices:
 
@@ -30,7 +31,6 @@ Getting Started:
   How to win:
   Simply get the enemy vampire to 0 hearts!
 
- https://vampirefight.netlify.app
 
 Technologies Used: HTML, Javascript, CSS.
 
