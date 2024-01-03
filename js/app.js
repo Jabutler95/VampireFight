@@ -65,14 +65,14 @@ const volumeControl = document.getElementById('volumeControl')
 backgroundMusic.loop = true
 playPauseBtn.addEventListener('click', playPauseMusic)
 //functionality to the slider to adjust volume 
-volumeControl.addEventListener('input', function(evt) {
+volumeControl.addEventListener('input', function() {
   backgroundMusic.volume = volumeControl.value
 })
 
 //functionality to the play/pause button
 let musicPlayed = false
 let musicPaused = false 
-function playPauseMusic (evt) {
+function playPauseMusic () {
   if (musicPaused) {
     backgroundMusic.play()
     musicPaused = false
@@ -505,7 +505,7 @@ updateCpuInvDis()
 
 function updateHP () {
   playHp.textContent = `Vladdy Daddy ❤️ : ${player1Hp}`
-  comHp.textContent = `Vladamir Pootin ❤️ : ${computerHp}`
+  comHp.textContent = `Vladamir B. Pootin ❤️ : ${computerHp}`
   if (player1Hp <= 0 && !gameIsOver) {
     document.getElementById('user-Vamp').style.animation = 'rotateVampire 30s'
     gameIsOver = true 
