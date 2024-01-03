@@ -1,4 +1,4 @@
-# VampireFight
+# Vampire Fight
 
 ![imageedit_5_5913939500](https://github.com/Jabutler95/VampireFight/assets/105134183/76e7049d-6612-4606-8ecc-a06e9cb64fd3)
 
