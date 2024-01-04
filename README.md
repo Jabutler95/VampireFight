@@ -13,12 +13,12 @@ Vampire Fight is a battle between two vampires, Vladdy Daddy and Vladamir B. Poo
 ## Understanding the Game 🎮
 #### Available choices 💥 :
 
-You can choose from Bite, Scratch, Garlic, Silver Bullet, Wooden Stake, and Crossbow. Each does a unique amount of damage, and some have limited use. 
+Users can choose from Bite, Scratch, Garlic, Silver Bullet, Wooden Stake, and Crossbow. Each does a unique amount of damage, and some have limited use. 
 - Bite wins vs Scratch. 
 - Scratch wins vs Garlic.
 - Garlic wins vs Bite. 
 
-Each instance will steal one heart from the enemy if you win. 
+Each instance will steal one heart from the enemy if the user wins. 
 
 - Wooden Stake deals two damage. 
 - Silver Bullet deals three damage. 
@@ -28,7 +28,7 @@ Each can only be used twice.
 
 ### How damage is dealt ❤️‍🩹 :
 
-Damage is dealt to the loser, or who has dealt the lesser damage. For example, if you select
+Damage is dealt to the loser, or who has dealt the lesser damage. For example, if the user selects
 Crossbow and the Computer selects Bite, Vladdy Daddy will deal three damage. The outcome is this way because Bite only deals one damage versus the four by Crossbow. 
 
 ### How to win 🤩 :
