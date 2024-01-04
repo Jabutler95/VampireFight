@@ -158,9 +158,8 @@ function getRandomWeapon(inv) {
 function compareChoices() {
   if (player1Choice === 'god') {
     computerHp = 0
-    godEffect.play()
     godEffect.volume = 0.1
-    updateHP()
+    godEffect.play()
   }
   //Draw condition
   if (player1Choice === computerChoice) {
@@ -174,277 +173,220 @@ function compareChoices() {
     message = `You chose Bite and the enemy chose Scratch you gain 1 HP and deal 1 damage.`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
-    updateHP ()
-    biteEffect.play()
     biteEffect.volume = 0.2
+    biteEffect.play()
   } 
   //player bite cpu garlic
   else if (player1Choice === choices[0] && computerChoice === choices[2]) {
     message = `You chose Bite and the enemy chose Garlic! The enemy stole 1HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
-    updateHP ()
-    garlicEffect.play()
     garlicEffect.volume = 0.2
+    garlicEffect.play()
   } 
   //player bite cpu silver bullet
   else if (player1Choice === choices[0] && computerChoice === choices[3]) {
     message = `You chose Bite and the enemy chose silver bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
-    updateCpuInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   } 
   //player bite cpu Wooden Stake
   else if (player1Choice === choices[0] && computerChoice === choices[5]) {
     message = `You chose Bite and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    updateCpuInvDis()
-    updateHP()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   } 
   //player bite cpu Crossbow
   else if (player1Choice === choices[0] && computerChoice === choices[4]) {
     message = `You chose Bite and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    updateCpuInvDis()
-    updateHP ()
-    woodenStakeEffect.play()
     woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   }
   //player scratch cpu bite
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {
     message = `You chose Scratch and the enemy chose Bite! You lose 1 HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
-    updateHP ()
-    biteEffect.play()
     biteEffect.volume = 0.2
+    biteEffect.play()
   }
   //player scratch cpu garlic
   else if (player1Choice === choices[1] && computerChoice === choices[2]) {
     message = `You chose Scratch and the enemy chose Garlic! You gain 1 HP!`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
-    updateHP ()
-    scratchEffect.play()
     scratchEffect.volume = 0.2
+    scratchEffect.play()
   }
   //player scratch cpu silver bullet
   else if (player1Choice === choices[1] && computerChoice === choices[3]) {
     message = `You chose Scratch and the enemy chose Silver Bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
-    updateCpuInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player scratch cpu crossbow
   else if (player1Choice === choices[1] && computerChoice === choices[4]) {
     message = `You chose Scratch and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    updateCpuInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player scratch cpu stake
   else if (player1Choice === choices[1] && computerChoice === choices[5]) {
     message = `You chose Scratch and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    updateCpuInvDis()
-    updateHP ()
-    woodenStakeEffect.play()
     woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   }
   //player garlic cpu bite
   else if (player1Choice === choices[2] && computerChoice === choices[0]) {
     message = `You chose Garlic and the enemy chose Bite! You gain 1 HP!`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
-    updateHP ()
-    garlicEffect.play()
     garlicEffect.volume = 0.2
+    garlicEffect.play()
   }
   //player garlic cpu scratch
   else if (player1Choice === choices[2] && computerChoice === choices[1]) {
     message = `You chose Garlic and the enemy chose Scratch! You lose 1 HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
-    updateHP ()
-    scratchEffect.play()
     scratchEffect.volume = 0.2
+    scratchEffect.play()
   }
   //player garlic cpu silver bullet
   else if (player1Choice === choices[2] && computerChoice === choices[3]) {
     message = `You chose Garlic and the enemy chose Silver Bullet! You lose 2 HP!`
     player1Hp = player1Hp - 2
-    updateCpuInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player garlic cpu crossbow
   else if (player1Choice === choices[2] && computerChoice === choices[4]) {
     message = `You chose Garlic and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    updateCpuInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player garlic cpu wooden stake
   else if (player1Choice === choices[2] && computerChoice === choices[5]) {
     message = `You chose Garlic and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    updateCpuInvDis()
-    updateHP ()
-    woodenStakeEffect.play()
     woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   }
   //player silver bullet cpu bite
   else if (player1Choice === choices[3] && computerChoice === choices[0]) {
     message = `You chose Silver Bullet and the enemy chose Bite! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayerInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player silver bullet cpu scratch 
   else if (player1Choice === choices[3] && computerChoice === choices[1]) {
     message = `You chose Silver Bullet and the enemy chose Scratch! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayerInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player silver bullet cpu garlic 
   else if (player1Choice === choices[3] && computerChoice === choices[2]) {
     message = `You chose Silver Bullet and the enemy chose Garlic! You deal 2 damage!`
     computerHp = computerHp - 2
-    updatePlayerInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player silver bullet cpu crossbow 
   else if (player1Choice === choices[3] && computerChoice === choices[4]) {
     message = `You chose Silver Bullet and the enemy chose Crossbow! You take 1 damage!`
     player1Hp = player1Hp - 1
-    updateCpuInvDis()
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player silver bullet cpu wooden stake
   else if (player1Choice === choices[3] && computerChoice === choices[5]) {
     message = `You chose Silver Bullet and the enemy chose Wooden Stake! You deal 1 damage!`
     computerHp = computerHp - 1
-    updateCpuInvDis()
-    updatePlayerInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player crossbow cpu bite
   else if (player1Choice === choices[4] && computerChoice === choices[0]) {
     message = `You chose Crossbow and the enemy chose Bite! You deal 3 damage!`
     computerHp = computerHp - 3
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player crossbow cpu scratch 
   else if (player1Choice === choices[4] && computerChoice === choices[1]) {
     message = `You chose Crossbow and the enemy chose Scratch! You deal 3 damage!`
     computerHp = computerHp - 3
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player crossbow cpu garlic 
   else if (player1Choice === choices[4] && computerChoice === choices[2]) {
     message = `You chose Crossbow and the enemy chose Garlic! You deal 3 damage!`
     computerHp = computerHp - 3
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player crossbow cpu silver bullet
   else if (player1Choice === choices[4] && computerChoice === choices[3]) {
     message = `You chose Crossbow and the enemy chose Silver Bullet! You deal 1 damage!`
     computerHp = computerHp - 1
-    updateCpuInvDis()
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player crossbow cpu wooden stake
   else if (player1Choice === choices[4] && computerChoice === choices[5]) {
     message = `You chose Crossbow and the enemy chose Wooden Stake! You deal 2 damage!`
     computerHp = computerHp - 2
-    updateCpuInvDis()
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player wooden stake cpu bite 
   else if (player1Choice === choices[5] && computerChoice === choices[0]) {
     message = `You chose Wooden Stake and the enemy chose Bite! You deal 1 damage!`
     computerHp = computerHp - 1
-    updatePlayerInvDis()
-    updateHP ()
-    woodenStakeEffect.play()
     woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   }
   //player wooden stake cpu scratch 
   else if (player1Choice === choices[5] && computerChoice === choices[1]) {
     message = `You chose Wooden Stake and the enemy chose Scratch! You deal 1 damage!`
     computerHp = computerHp - 1
-    updatePlayerInvDis()
-    updateHP ()
-    woodenStakeEffect.play()
     woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   }
   //player wooden stake cpu Garlic 
   else if (player1Choice === choices[5] && computerChoice === choices[2]) {
     message = `You chose Wooden Stake and the enemy chose Garlic! You deal 1 damage!`
     computerHp = computerHp - 1
-    updatePlayerInvDis()
-    updateHP ()
-    woodenStakeEffect.play()
     woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   }
   //player wooden stake cpu silver bullet
   else if (player1Choice === choices[5] && computerChoice === choices[3]) {
     message = `You chose Wooden Stake and the enemy chose Silver Bullet! You take 1 damage!`
     player1Hp = player1Hp - 1
-    updateCpuInvDis()
-    updatePlayerInvDis()
-    updateHP ()
-    silverBulletEffect.play()
     silverBulletEffect.volume = 0.2
+    silverBulletEffect.play()
   }
   //player wooden stake cpu crossbow
   else if (player1Choice === choices[5] && computerChoice === choices[4]) {
     message = `You chose Wooden Stake and the enemy chose Crossbow! You take 2 damage!`
     player1Hp = player1Hp - 2
-    updateCpuInvDis()
-    updatePlayerInvDis()
-    updateHP ()
-    crossbowEffect.play()
     crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
+  updateCpuInvDis()
+  updatePlayerInvDis()
+  updateHP()
 }
 
 function updateMessage () {

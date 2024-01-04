@@ -4,14 +4,16 @@
 
 Description:
 
-Vampire Fight is a battle between two vampires, Vladdy Daddy and Vladamir B. Pootin, to settle who deserves to be the king. You shall play as Vladdy Daddy who wants to unify vampirekind and humans in a peaceful manner. The evil Vladamir B. Pootin wants to simply take over the world. 
-You have 6 choices of weapons to get the enemy's health to 0 and save the world!
+Vampire Fight is a battle between two vampires, Vladdy Daddy and Vladamir B. Pootin. The battle will settle who deserves to be the one true king. You play as Vladdy Daddy who wants to unify vampirekind and humans in a peaceful manner. The evil Vladamir B. Pootin wants to take over the world. 
+You have six choices of weapons to get the enemy's health to zero and save the world!
+
+Play the game here:
+ https://vampirefight.netlify.app
 
 Why this game?:
-I chose to create this game because I love all things horror. Adding a touch of humor to this game really made it come to life create a more enjoyable experience for a user. 
 
-Getting Started:
- https://vampirefight.netlify.app
+I chose to create this game because I love all things horror! I did not want this specific game to be too dark though. Adding a touch of humor to this game really made it come to life create a more enjoyable experience for a user. 
+
 
   Your choices:
 
@@ -19,17 +21,17 @@ Getting Started:
   Bite wins vs Scratch. 
   Scratch wins vs Garlic.
   Garlic wins vs Bite. 
-  Each instance of you winning will steal 1 heart from the enemy. 
-  Wooden Stake deals 2 damage. 
-  Silver Bullet deals 3 damage. 
-  Crossbow deals 4 damage.
-  Each of these can only be used 2 times. 
+  Each instance of you winning will steal one heart from the enemy. 
+  Wooden Stake deals two damage. 
+  Silver Bullet deals three damage. 
+  Crossbow deals four damage.
+  Each of these can only be used twice. 
 
   Understanding how damage is dealt:
 
-  Damage is deal to the loser or who has dealt the lesser amount of damage. For example, if you choose Crossbow and the Computer chooses Bite, you will deal 3 damage since Bite only deals 1 damage. 
+  Damage is deal to the loser or who has dealt the lesser amount of damage. For example, if you choose Crossbow and the Computer chooses Bite, you will deal three damage since Bite only deals one damage. 
   How to win:
-  Simply get the enemy vampire to 0 hearts!
+  Get the enemy vampire to zero hearts!
 
 
 Technologies Used: HTML, Javascript, CSS.
@@ -40,7 +42,10 @@ More choices such as a health potion.
 Animations for each choice. 
 Make the app more mobile friendly.
 Variety of characters for user to choose from. 
-Add a start page for user to choose their character and input their personalized name in for the cpu/other player and themselves.  
+Add a start page for user to choose their character and input their personalized name in for the cpu/other player and themselves.
+
+Link to planning materials:
+https://fortune-brian-02b.notion.site/Unit-1-Project-Planning-Materials-051de69b4c234b4ab7295802a0bca55b
 
 Attributions:
 
