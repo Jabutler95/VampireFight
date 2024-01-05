@@ -5,33 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./js/app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/style.css">
-<title>vampirefight</title>
-<link id="favicon"rel="icon"href="./Images/faviconVamp.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Vampire Fight</title>
+    <link id="favicon"rel="icon"href="./Images/faviconVamp.png">
 </head>
 <body>
     <div id="title-div">
         <h1 id="game-title">Vampire Fight</h1>
-        <button id="playPauseBtn">Pause Music</button>
-        <input type="range" id="volumeControl" min="0" max="0.1" step="0.01" value="0.01" >
+        <button id="play-pause-btn">Pause Music</button>
+        <input type="range" id="volume-control" min="0" max="0.1" step="0.01" value="0.01" >
     </div> 
     <div id="background">   
-        <div id="rules-div">   
+        <div id="rules-div">
             <h2 id="rules-title">Rules:</h2>
-            <ul>
-                <li>Bite wins vs Scratch and will gain you 1 HP.</li>
-                <li>Scratch wins vs Garlic and will gain you 1 HP.</li>
-                <li>Garlic wins vs Bite and will gain you 1 HP.</li>
-                <li>Silver Bullet will take away 3 HP from the opponent, but you only have 2.</li>
-                <li>Wooden Stake will take away 2 HP from the opponent, but you only have 2.</li>
-                <li>Crossbow does 4 damage, but you only have 2.</li>
+            <ul id="rules-text">
+            <li>Bite wins vs Scratch and will gain you 1 HP.</li>
+            <li>Scratch wins vs Garlic and will gain you 1 HP.</li>
+            <li>Garlic wins vs Bite and will gain you 1 HP.</li>
+            <li>Silver Bullet will take away 3 HP from the opponent, but you only have 2.</li>
+            <li>Wooden Stake will take away 2 HP from the opponent, but you only have 2.</li>
+            <li>Crossbow does 4 damage, but you only have 2.</li>
         </ul>
         </div>
-        <div id="forStyle">
+        <div id="message-style">
             <div id="message-div">
                 <h2 id="message">Make a choice to begin!</h2>
             </div>
@@ -67,6 +67,7 @@
             <button class="choices" id="Wooden Stake">Wooden Stake</button>
             <button class="choices" id="Crossbow">Crossbow</button>
             <button class="choices" id="god">God</button>
+            <button id="loser" class="choices">Loser</button>
         </div>
     </div>  
 </body>

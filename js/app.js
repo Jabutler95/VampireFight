@@ -9,6 +9,11 @@ const choices = [
   'Wooden Stake',
 ]
 
+function assessDamage () {
+  
+
+}
+
 /*--------------- Variables ------------------*/
 let computerInventory = {
   weapons: [
@@ -59,8 +64,8 @@ const silverBulletEffect = new Audio('../Audio/SilverBullet.mp3')
 const winnerEffect = new Audio('../Audio/Winner.mp3')
 const woodenStakeEffect = new Audio('../Audio/WoodenStake.mp3')
 const backgroundMusic = new Audio('../Audio/CreepyBackgroundMusic.mp3')
-const playPauseBtn = document.getElementById('playPauseBtn')
-const volumeControl = document.getElementById('volumeControl')
+const playPauseBtn = document.getElementById('play-pause-btn')
+const volumeControl = document.getElementById('volume-control')
 //loop the audio 
 backgroundMusic.loop = true
 playPauseBtn.addEventListener('click', playPauseMusic)
@@ -93,8 +98,11 @@ document.getElementById('Silver Bullet').addEventListener('click', playGame)
 document.getElementById('Wooden Stake').addEventListener('click', playGame)
 document.getElementById('Crossbow').addEventListener('click', playGame)
 document.getElementById('god').addEventListener('click', playGame)
+document.getElementById('loser').addEventListener('click', playGame)
 resetButton.addEventListener('click', resetGame)
+
 /*-------------- Functions -----------------*/
+
 updateHP()
 function playGame(evt) {
   if (musicPlayed === false) {
@@ -156,21 +164,24 @@ function getRandomWeapon(inv) {
 }
 
 function compareChoices() {
+  if (player1Choice === 'loser') {
+    player1Hp = 0
+    loserEffect.volume = 0.1
+    loserEffect.play()
+  }
   if (player1Choice === 'god') {
     computerHp = 0
-    godEffect.volume = 0.1
+    godEffect.volume = 0.05
     godEffect.play()
   }
   //Draw condition
   if (player1Choice === computerChoice) {
     message = `You chose ${player1Choice}, the enemy chose ${computerChoice}. It's a draw! Nothing happens.`
-    updatePlayerInvDis()
-    updateCpuInvDis()
     tieEffect.play()
   } 
   //player bite cpu scratch
   else if (player1Choice === choices[0] && computerChoice === choices[1]) {
-    message = `You chose Bite and the enemy chose Scratch you gain 1 HP and deal 1 damage.`
+    message = `You chose Bite and the enemy chose Scratch! You stole 1 HP!`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
     biteEffect.volume = 0.2
@@ -207,7 +218,7 @@ function compareChoices() {
   }
   //player scratch cpu bite
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {
-    message = `You chose Scratch and the enemy chose Bite! You lose 1 HP!`
+    message = `You chose Scratch and the enemy chose Bite! The enemy stole 1 HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
     biteEffect.volume = 0.2
@@ -215,7 +226,7 @@ function compareChoices() {
   }
   //player scratch cpu garlic
   else if (player1Choice === choices[1] && computerChoice === choices[2]) {
-    message = `You chose Scratch and the enemy chose Garlic! You gain 1 HP!`
+    message = `You chose Scratch and the enemy chose Garlic! You stole 1 HP!`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
     scratchEffect.volume = 0.2
@@ -244,7 +255,7 @@ function compareChoices() {
   }
   //player garlic cpu bite
   else if (player1Choice === choices[2] && computerChoice === choices[0]) {
-    message = `You chose Garlic and the enemy chose Bite! You gain 1 HP!`
+    message = `You chose Garlic and the enemy chose Bite! You stole 1 HP!`
     player1Hp = player1Hp + 1
     computerHp = computerHp - 1
     garlicEffect.volume = 0.2
@@ -252,7 +263,7 @@ function compareChoices() {
   }
   //player garlic cpu scratch
   else if (player1Choice === choices[2] && computerChoice === choices[1]) {
-    message = `You chose Garlic and the enemy chose Scratch! You lose 1 HP!`
+    message = `You chose Garlic and the enemy chose Scratch! The enemy stole 1 HP!`
     player1Hp = player1Hp - 1
     computerHp = computerHp + 1
     scratchEffect.volume = 0.2
@@ -404,6 +415,7 @@ function checkWinner() {
     winner = true
     message = `YOU WIN!!!!!!!! Go again?`
     gameOver()
+    winnerEffect.volume = 0.05
     winnerEffect.play()
   }
   else {
@@ -411,7 +423,7 @@ function checkWinner() {
   }
 }
 
-//funciton to disable all the buttons if there is a winner
+//Funciton to disable all the buttons if there is a winner
 function gameOver () {
   if (winner) {
     choiceButtons.forEach(button => {
@@ -420,9 +432,7 @@ function gameOver () {
   }
 }
 
-//update the inventory on the screen after each state change in the game
-
-//display the inventory as it is updated on the screen. Iterate through and append the item to the parent ul
+//Update the inventory on the screen after each state change in the game. Display the inventory as it is updated on the screen. Iterate through and append the item to the parent ul
 function updatePlayerInvDis() {
   player1InventoryEl.innerHTML = ''
   player1Inventory.weapons.forEach(weapon => {
@@ -449,11 +459,11 @@ function updateHP () {
   playHp.textContent = `Vladdy Daddy ❤️ : ${player1Hp}`
   comHp.textContent = `Vladamir B. Pootin ❤️ : ${computerHp}`
   if (player1Hp <= 0 && !gameIsOver) {
-    document.getElementById('user-Vamp').style.animation = 'rotateVampire 30s'
+    document.getElementById('user-Vamp').style.animation = 'rotateUserVampire 30s'
     gameIsOver = true 
   }
   if (computerHp <= 0 && !gameIsOver) {
-    document.getElementById('Computer-Vamp').style.animation = 'rotateVampire 30s'
+    document.getElementById('Computer-Vamp').style.animation = 'rotateCpuVampire 30s'
     gameIsOver = true
   }
 }
@@ -497,7 +507,10 @@ function resetGame () {
     document.getElementById(choice).disabled = false 
   })
   updateMessage()
+  //Just for demo
+  document.querySelector('#loser').disabled = false
   document.querySelector('#god').disabled = false
+  //Just for demo 
   gameIsOver = false
   document.getElementById('user-Vamp').style.animation = ''
   document.getElementById('Computer-Vamp').style.animation = ''
