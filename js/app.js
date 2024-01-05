@@ -9,11 +9,6 @@ const choices = [
   'Wooden Stake',
 ]
 
-function assessDamage () {
-  
-
-}
-
 /*--------------- Variables ------------------*/
 let computerInventory = {
   weapons: [
@@ -206,15 +201,15 @@ function compareChoices() {
   else if (player1Choice === choices[0] && computerChoice === choices[5]) {
     message = `You chose Bite and the enemy chose Wooden Stake! You lose 1 HP!`
     player1Hp = player1Hp - 1
-    crossbowEffect.volume = 0.2
-    crossbowEffect.play()
+    woodenStakeEffect.volume = 0.2
+    woodenStakeEffect.play()
   } 
   //player bite cpu Crossbow
   else if (player1Choice === choices[0] && computerChoice === choices[4]) {
     message = `You chose Bite and the enemy chose Crossbow! You lose 3 HP!`
     player1Hp = player1Hp - 3
-    woodenStakeEffect.volume = 0.2
-    woodenStakeEffect.play()
+    crossbowEffect.volume = 0.2
+    crossbowEffect.play()
   }
   //player scratch cpu bite
   else if (player1Choice === choices[1] && computerChoice === choices[0]) {

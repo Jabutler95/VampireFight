@@ -87,14 +87,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 18px;
 }
 
 #player1InvList {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 18px;
 }
 
 .inv-h3 {
