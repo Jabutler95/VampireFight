@@ -8,7 +8,7 @@ body {
 }
 #background {
   margin: 0;
-  padding: 0;
+  padding: 0px;
   overflow: hidden;
   background-image: url("../Images/Background.jpg");
   background-size: 100% 100%;
@@ -35,14 +35,13 @@ body {
 
 
 #game-title {
-  padding-top: 32px;
   animation-name: fadeInOut;
   animation-duration: 15s;
   animation-iteration-count: infinite;
 }
 
 #title-div {
-  height: 10vh;
+  height: 15vh;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -80,11 +79,7 @@ body {
   width: fit-content;
   border: 5px solid black;
   border-style: groove;
-}
-
-#rules-title {
-  margin: 5px;
-  padding: 5px;
+  font-size: 12px;
 }
 
 #message-style {
@@ -248,8 +243,7 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='%23ff0003' fill-opacity='0.08'%3E%3Cpath d='M12 0h18v6h6v6h6v18h-6v6h-6v6H12v-6H6v-6H0V12h6V6h6V0zm12 6h-6v6h-6v6H6v6h6v6h6v6h6v-6h6v-6h6v-6h-6v-6h-6V6zm-6 12h6v6h-6v-6zm24 24h6v6h-6v-6z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
   border: 2px solid black;
   color: white;
-  font-family: 'DotGothic16', sans-serif;
-  font-size: large;
+  font-family: 'DotGothic16', sans-serif; 
   border-color: #66635B;
   border-radius: 8px;
   border-style: solid;
