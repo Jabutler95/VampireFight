@@ -39,6 +39,9 @@ let computerHp = 10
 let winner = false
 
 /*-------- Cached Element References-------*/
+const rulesButton = document.getElementById('rules-btn')
+const rulesDiv = document.getElementById('rules-div')
+
 const player1InventoryEl = document.getElementById('player1InvList')
 const cpuInventoryEl = document.getElementById('cpuInvList')
 const battleResult = document.getElementById('message')
@@ -86,17 +89,29 @@ function playPauseMusic () {
 
 
 /*-------------- Event Listeners ---------------*/
+document.getElementById('rules-btn').addEventListener('click', updateRules)
+
 document.getElementById('Bite').addEventListener('click', playGame)
 document.getElementById('Scratch').addEventListener('click', playGame)
 document.getElementById('Garlic').addEventListener('click', playGame)
 document.getElementById('Silver Bullet').addEventListener('click', playGame)
 document.getElementById('Wooden Stake').addEventListener('click', playGame)
 document.getElementById('Crossbow').addEventListener('click', playGame)
-document.getElementById('god').addEventListener('click', playGame)
-document.getElementById('loser').addEventListener('click', playGame)
+// document.getElementById('god').addEventListener('click', playGame)
+// document.getElementById('loser').addEventListener('click', playGame)
 resetButton.addEventListener('click', resetGame)
 
 /*-------------- Functions -----------------*/
+
+function updateRules() {
+  if (rulesButton.textContent === 'Hide Rules') {
+    rulesDiv.style.display = 'none'
+    rulesButton.textContent = 'Show Rules'
+  } else if (rulesButton.textContent === 'Show Rules') {
+    rulesDiv.style.display = 'block'
+    rulesButton.textContent = 'Hide Rules'
+  }
+}
 
 updateHP()
 function playGame(evt) {
