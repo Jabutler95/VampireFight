@@ -159,6 +159,8 @@ function getRandomWeapon(inv) {
 }
 
 function compareChoices() {
+  // for demo only
+
   if (player1Choice === 'loser') {
     player1Hp = 0
     loserEffect.volume = 0.1
@@ -169,6 +171,7 @@ function compareChoices() {
     godEffect.volume = 0.05
     godEffect.play()
   }
+
   //Draw condition
   if (player1Choice === computerChoice) {
     message = `You chose ${player1Choice}, the enemy chose ${computerChoice}. It's a draw! Nothing happens.`
@@ -505,7 +508,6 @@ function resetGame () {
   //Just for demo
   document.querySelector('#loser').disabled = false
   document.querySelector('#god').disabled = false
-  //Just for demo 
   gameIsOver = false
   document.getElementById('user-Vamp').style.animation = ''
   document.getElementById('Computer-Vamp').style.animation = ''
