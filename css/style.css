@@ -55,6 +55,7 @@ body {
 }
 
 #rules-div {
+  display: block;
   justify-content: flex-start;
   background-color: #301934;
   background-color: #301934;
