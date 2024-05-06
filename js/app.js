@@ -97,8 +97,8 @@ document.getElementById('Garlic').addEventListener('click', playGame)
 document.getElementById('Silver Bullet').addEventListener('click', playGame)
 document.getElementById('Wooden Stake').addEventListener('click', playGame)
 document.getElementById('Crossbow').addEventListener('click', playGame)
-document.getElementById('god').addEventListener('click', playGame)
-document.getElementById('loser').addEventListener('click', playGame)
+// document.getElementById('god').addEventListener('click', playGame)
+// document.getElementById('loser').addEventListener('click', playGame)
 resetButton.addEventListener('click', resetGame)
 
 /*-------------- Functions -----------------*/
