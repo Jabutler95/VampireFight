@@ -35,6 +35,7 @@ body {
 
 
 #game-title {
+  padding-top: 32px;
   animation-name: fadeInOut;
   animation-duration: 15s;
   animation-iteration-count: infinite;
